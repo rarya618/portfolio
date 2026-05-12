@@ -1,89 +1,45 @@
-import { useMode } from './ModeContext';
-import EngineerPanel from './EngineerPanel';
-import DesignerPanel from './DesignerPanel';
-
 export default function Hero() {
-  const { isDesigner } = useMode();
-
-  const accent = isDesigner ? '#c1440e' : '#c8ff00';
-  const muted = isDesigner ? '#9a9490' : '#444444';
-  const text = isDesigner ? '#1a1714' : '#e8e4db';
-  const border = isDesigner ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.07)';
-
   return (
-    <section className="grid grid-cols-2 relative overflow-hidden min-h-screen transition-colors duration-700">
-
-      {/* Left panel */}
-      <div
-        className="flex flex-col justify-center px-12 py-20 transition-colors duration-700"
-        style={{ borderRight: `1px solid ${border}` }}
+    <section
+      style={{
+        padding: '0 8vw',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
+      <h1
+        style={{
+          fontSize: 'clamp(3.5rem, 8vw, 7.5rem)',
+          fontWeight: 300,
+          lineHeight: 0.9,
+          letterSpacing: '-0.03em',
+          marginBottom: '2.5rem',
+        }}
       >
-        {/* Eyebrow */}
-        <div
-          className="flex items-center gap-3 font-mono uppercase mb-10 text-[10px] tracking-[0.2em] transition-colors duration-700"
-          style={{ color: accent }}
-        >
-          <span className="block flex-shrink-0 h-px w-4" style={{ background: accent }} />
-          {isDesigner ? 'Mode: Designer' : 'Mode: Engineer'}
-        </div>
+        russal arya
+      </h1>
 
-        {/* Name */}
-        <h1
-          className="font-serif mb-0"
-          style={{ fontSize: 'clamp(3.5rem, 7vw, 6.5rem)', lineHeight: 0.92, letterSpacing: '-0.02em' }}
-        >
-          <span className="block" style={{ color: text }}>Russal</span>
-          <span className="block italic transition-colors duration-700" style={{ color: accent }}>Arya</span>
-        </h1>
+      <p style={{ fontSize: '0.8125rem', opacity: 0.5, marginBottom: '1.25rem' }}>
+        // full-stack &amp; ios developer · sydney
+      </p>
 
-        {/* Role */}
-        <p
-          className="font-mono text-[11px] leading-loose mt-8 mb-12 max-w-[280px] transition-colors duration-700"
-          style={{ color: muted }}
-        >
-          {isDesigner ? (
-            <>Product designer.<br />Figma by day. Terminal by night.<br />The one who actually builds the thing.</>
-          ) : (
-            <>Software engineer.<br />Product-minded. Systems-obsessed.<br />Sometimes also ships the design.</>
-          )}
-        </p>
+      <p style={{ fontSize: '0.9375rem', opacity: 0.75, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '3rem' }}>
+        building production web and ios apps that ship.
+      </p>
 
-        {/* CTA */}
-        <a
-          href="#work"
-          className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.15em] uppercase pb-1 w-fit transition-colors duration-300"
-          style={{ color: text, borderBottom: `1px solid ${accent}`, textDecoration: 'none' }}
-          onClick={(e) => {
-            e.preventDefault();
-            document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        >
-          View selected work ↗
-        </a>
-      </div>
-
-      {/* Right — animated panel swap */}
-      <div className="relative flex items-center justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 flex items-center justify-center transition-all duration-700"
-          style={{
-            opacity: isDesigner ? 0 : 1,
-            transform: isDesigner ? 'translateY(20px) scale(0.96)' : 'translateY(0) scale(1)',
-            pointerEvents: isDesigner ? 'none' : 'auto',
-          }}
-        >
-          <EngineerPanel />
-        </div>
-        <div
-          className="absolute inset-0 transition-all duration-700"
-          style={{
-            opacity: isDesigner ? 1 : 0,
-            transform: isDesigner ? 'translateY(0) scale(1)' : 'translateY(-20px) scale(0.96)',
-            pointerEvents: isDesigner ? 'auto' : 'none',
-          }}
-        >
-          <DesignerPanel />
-        </div>
+      <div className="hero-stats" style={{ display: 'flex', gap: '3rem' }}>
+        {[
+          { value: '3+', label: 'yrs experience' },
+          { value: '5', label: 'projects shipped' },
+          { value: '1', label: 'app on the app store' },
+        ].map((stat) => (
+          <div key={stat.label}>
+            <span style={{ fontSize: '1.25rem', letterSpacing: '-0.02em', opacity: 0.9 }}>{stat.value}</span>
+            <span style={{ fontSize: '0.6875rem', opacity: 0.45, marginLeft: '0.4rem' }}>{stat.label}</span>
+          </div>
+        ))}
       </div>
     </section>
   );

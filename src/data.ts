@@ -1,53 +1,64 @@
-import type { Project, Stat } from './types';
+import type { Project } from './types';
 
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    name: 'Meridian Design System',
+    name: 'TrackSense',
     description:
-      'Component library spanning 80+ primitives. Designed every component in Figma, built each one in React with full token sync.',
-    mode: 'Design + Engineering',
-    tags: ['Figma', 'React', 'Tokens', 'Storybook'],
+      'Solo-built and shipped an Apple Music-powered app that lets you analyse your listening trends and sync playback in real time across devices. Built full-stack: SwiftUI + MusicKit on iOS, React + Vite + Tailwind on web, Firebase Cloud Functions on the backend.',
+    mode: 'Engineering',
+    tags: ['SwiftUI', 'MusicKit', 'React', 'Firebase'],
+    url: 'https://tracksense.fm',
   },
   {
     id: 2,
-    name: 'Real-time Canvas Engine',
+    name: 'GDG Check-In App',
     description:
-      'Multiplayer infinite canvas built on CRDTs and WebSockets. Sub-20ms sync across 1000 concurrent users.',
+      'A real-time event check-in system with live-updating dashboards, on-the-spot attendee registration, and Bevy integration for event management. Built with React, Firebase Auth, and Realtime Database for instant state sync across devices.',
     mode: 'Engineering',
-    tags: ['Rust', 'CRDTs', 'WebGL', 'WebSockets'],
+    tags: ['React', 'Firebase', 'Realtime Database', 'Bevy'],
+    url: 'https://gdgcheckin.com',
   },
   {
     id: 3,
-    name: 'Analytics Dashboard Redesign',
+    name: 'DermaNote',
     description:
-      'End-to-end product redesign for a B2B analytics platform. Reduced task completion time by 40% through information architecture overhaul.',
-    mode: 'Design',
-    tags: ['UX Research', 'Figma', 'Prototyping'],
+      'A mobile app using computer vision to help users track psoriasis flare progression over time. Firebase-backed with an ML image analysis pipeline. iOS-first, with Android on the roadmap.',
+    mode: 'Engineering',
+    tags: ['iOS', 'Firebase', 'Computer Vision', 'ML'],
+    url: undefined,
   },
   {
     id: 4,
-    name: 'Generative UI Toolkit',
+    name: 'Storia',
     description:
-      'Developer tool for generating production-ready UI components from natural language. Designed the product, built the inference pipeline.',
+      'Personal story development platform for screenwriters. Built with React, TypeScript, and Firebase. Implemented auth with cookies and session storage, and designed high-fidelity interfaces across web and mobile.',
     mode: 'Design + Engineering',
-    tags: ['Python', 'LLMs', 'TypeScript', 'Product'],
+    tags: ['React', 'TypeScript', 'Firebase'],
+    url: undefined,
+  },
+  {
+    id: 5,
+    name: 'GDG Calendar App',
+    description:
+      'An embeddable Google Calendar integration built for Notion. React + Firebase with an OAuth2 flow via Cloud Functions for secure API access, restricted to authorised clients only.',
+    mode: 'Engineering',
+    tags: ['React', 'Firebase', 'Google Calendar API', 'OAuth2'],
+    url: undefined,
   },
 ];
 
-export const STATS: Stat[] = [
-  { value: '3+', label: 'Years shipping product' },
-  { value: '8+', label: 'Components designed & built' },
-  { value: '2', label: 'Products launched from scratch' },
-];
-
 export const STACK = [
-  'Rust', 'Go', 'TypeScript', 'Python',
-  'React', 'Figma', 'Kubernetes', 'Postgres',
+  'SwiftUI', 'React', 'TypeScript', 'Firebase',
+  'MusicKit', 'Tailwind', 'Python', 'Figma',
 ];
 
-export const MARQUEE_ITEMS = [
-  'Rust', 'TypeScript', 'Systems Design', 'Distributed Systems',
-  'React', 'Go', 'ML Infrastructure', 'API Design', 'Figma',
-  'Design Systems', 'Product Thinking', 'WebGL',
-];
+export const BIO =
+  "sydney-based developer with 3+ years taking products from idea to deployment. i've freelanced for startups, contracted remotely for a us-based screenwriting platform, and solo-shipped an app to the app store.\n\noutside of building, i organise gdg sydney, a community of 1,900+ developers, and have spoken at workshops on react and firebase at google hq. i previously helped grow the largest tech student community at the university of sydney to 2,300+ members.\n\ni was born in russia, speak some russian, and bring that international perspective to everything i build.";
+
+export const CONTACT = {
+  email: 'hello@russal.dev',
+  github: 'https://github.com/russalarya',
+  linkedin: 'https://linkedin.com/in/russalarya',
+  resume: '/resume.pdf',
+};
