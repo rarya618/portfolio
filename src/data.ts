@@ -56,6 +56,24 @@ export const STACK = [
 export const BIO =
   "sydney-based developer with 3+ years taking products from idea to deployment. i've freelanced for startups, contracted remotely for a us-based screenwriting platform, and solo-shipped an app to the app store.\n\noutside of building, i organise gdg sydney, a community of 1,900+ developers, and have spoken at workshops on react and firebase at google hq. i previously helped grow the largest tech student community at the university of sydney to 2,300+ members.\n\ni was born in russia, speak some russian, and bring that international perspective to everything i build.";
 
+export const TECH_URLS: Record<string, string | undefined> = {
+  SwiftUI: 'https://developer.apple.com/xcode/swiftui/',
+  MusicKit: 'https://developer.apple.com/musickit/',
+  React: 'https://react.dev',
+  Firebase: 'https://firebase.google.com',
+  TypeScript: 'https://www.typescriptlang.org',
+  Tailwind: 'https://tailwindcss.com',
+  Python: 'https://python.org',
+  Figma: 'https://figma.com',
+  'Realtime Database': 'https://firebase.google.com/products/realtime-database',
+  Bevy: 'https://bevy.community',
+  iOS: 'https://developer.apple.com/ios/',
+  'Computer Vision': undefined,
+  ML: undefined,
+  'Google Calendar API': 'https://developers.google.com/calendar',
+  OAuth2: 'https://oauth.net/2/',
+};
+
 export const CONTACT = {
   email: 'hello@russal.dev',
   github: 'https://github.com/russalarya',

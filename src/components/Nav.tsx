@@ -29,7 +29,7 @@ export default function Nav() {
           russal arya
         </a>
 
-        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.45 }}>
+        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.65 }}>
           {links.map(({ label, href, external }) => (
             <a key={label} href={href} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>
               {label}

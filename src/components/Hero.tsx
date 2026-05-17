@@ -21,11 +21,11 @@ export default function Hero() {
         russal arya
       </h1>
 
-      <p style={{ fontSize: '0.8125rem', opacity: 0.5, marginBottom: '1.25rem' }}>
+      <p style={{ fontSize: '0.8125rem', opacity: 0.65, marginBottom: '1.25rem' }}>
         // full-stack &amp; ios developer · sydney
       </p>
 
-      <p style={{ fontSize: '0.9375rem', opacity: 0.75, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '3rem' }}>
+      <p style={{ fontSize: '0.9375rem', opacity: 0.85, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '3rem' }}>
         building production web and ios apps that ship.
       </p>
 
@@ -36,8 +36,8 @@ export default function Hero() {
           { value: '1', label: 'app on the app store' },
         ].map((stat) => (
           <div key={stat.label}>
-            <span style={{ fontSize: '1.25rem', letterSpacing: '-0.02em', opacity: 0.9 }}>{stat.value}</span>
-            <span style={{ fontSize: '0.6875rem', opacity: 0.45, marginLeft: '0.4rem' }}>{stat.label}</span>
+            <span style={{ fontSize: '1.25rem', letterSpacing: '-0.02em', opacity: 0.95 }}>{stat.value}</span>
+            <span style={{ fontSize: '0.8125rem', opacity: 0.6, marginLeft: '0.5rem' }}>{stat.label}</span>
           </div>
         ))}
       </div>
