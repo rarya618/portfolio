@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { PROJECTS, TECH_URLS } from '../data';
 
 export default function Work() {
@@ -16,21 +17,13 @@ export default function Work() {
 
             <div style={{ flex: 1, minWidth: 0 }}>
               <div style={{ marginBottom: '0.5rem' }}>
-                {project.url ? (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="prose-link"
-                    style={{ fontSize: '0.9375rem', opacity: 0.95, letterSpacing: '-0.01em' }}
-                  >
-                    {project.name}
-                  </a>
-                ) : (
-                  <span style={{ fontSize: '0.9375rem', opacity: 0.95, letterSpacing: '-0.01em' }}>
-                    {project.name}
-                  </span>
-                )}
+                <Link
+                  to={`/project/${project.slug}`}
+                  className="prose-link"
+                  style={{ fontSize: '0.9375rem', opacity: 0.95, letterSpacing: '-0.01em' }}
+                >
+                  {project.name}
+                </Link>
               </div>
 
               <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.8, maxWidth: '60ch', marginBottom: '0.875rem' }}>

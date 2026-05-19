@@ -22,11 +22,11 @@ export default function Hero() {
       </h1>
 
       <p style={{ fontSize: '0.8125rem', opacity: 0.65, marginBottom: '1.25rem' }}>
-        // full-stack &amp; ios developer · sydney
+        // full-stack &amp; mobile product builder · sydney
       </p>
 
       <p style={{ fontSize: '0.9375rem', opacity: 0.85, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '3rem' }}>
-        building production web and ios apps that ship.
+        design and engineering — where that line doesn't exist. building consumer products with ai-powered speed.
       </p>
 
       <div className="hero-stats" style={{ display: 'flex', gap: '3rem' }}>

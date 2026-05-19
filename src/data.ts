@@ -3,80 +3,105 @@ import type { Project } from './types';
 export const PROJECTS: Project[] = [
   {
     id: 1,
+    slug: 'tracksense',
     name: 'TrackSense',
     description:
-      'Solo-built and shipped an Apple Music-powered app that lets you analyse your listening trends and sync playback in real time across devices. Built full-stack: SwiftUI + MusicKit on iOS, React + Vite + Tailwind on web, Firebase Cloud Functions on the backend.',
-    mode: 'Engineering',
-    tags: ['SwiftUI', 'MusicKit', 'React', 'Firebase'],
+      'Solo-designed and shipped a consumer iOS app end-to-end — from product concept and motion UI design to App Store release. Features real-time playback sync, shared listening sessions via 6-character share codes, dynamic album art color theming, and a web dashboard with library stats. Built full-stack using Claude Code: SwiftUI + MusicKit on iOS, React + Vite + Tailwind on web, Firebase Cloud Functions on the backend.',
+    mode: 'Design + Engineering',
+    tags: ['SwiftUI', 'MusicKit', 'React', 'Tailwind', 'Firebase', 'Claude Code'],
     url: 'https://tracksense.fm',
+    process: {
+      summary:
+        'Add your process summary here — a short paragraph about what drove this project, what problem it solved, and what you were trying to prove to yourself.',
+      steps: [
+        {
+          number: 1,
+          title: 'research & scoping',
+          body: 'Describe your research phase here — user interviews, competitor analysis, what you learned.',
+        },
+        {
+          number: 2,
+          title: 'design',
+          body: 'Describe your design process — Figma explorations, key visual decisions, what you iterated on.',
+        },
+        {
+          number: 3,
+          title: 'engineering',
+          body: 'Describe how you built it — architecture choices, technical challenges, what you shipped.',
+        },
+      ],
+      decisions: [
+        'Add a key decision or tradeoff you made here.',
+        'And another one — what did you choose and why?',
+      ],
+    },
   },
   {
     id: 2,
-    name: 'GDG Check-In App',
+    slug: 'tailr',
+    name: 'Tailr',
     description:
-      'A real-time event check-in system with live-updating dashboards, on-the-spot attendee registration, and Bevy integration for event management. Built with React, Firebase Auth, and Realtime Database for instant state sync across devices.',
-    mode: 'Engineering',
-    tags: ['React', 'Firebase', 'Realtime Database', 'Bevy'],
-    url: 'https://gdgcheckin.com',
+      'A Next.js tool that analyses job listings — via pasted text or URL — and uses the Claude API to extract ranked skills, qualifications, and tone signals to help candidates tailor their resume. Designed and shipped end-to-end using Claude Code.',
+    mode: 'Design + Engineering',
+    tags: ['Next.js', 'Claude API', 'TypeScript', 'Claude Code'],
+    url: 'https://tailr.russal.dev',
   },
   {
     id: 3,
+    slug: 'dermanote',
     name: 'DermaNote',
     description:
-      'A mobile app using computer vision to help users track psoriasis flare progression over time. Firebase-backed with an ML image analysis pipeline. iOS-first, with Android on the roadmap.',
-    mode: 'Engineering',
-    tags: ['iOS', 'Firebase', 'Computer Vision', 'ML'],
+      'iOS health app for tracking psoriasis flare progression over time. Daily check-in flow with a custom gradient intensity slider, symptom and photo logging, and treatment task tracking. History view with a calendar heatmap and Swift Charts trend lines over 30 days. Firebase-backed.',
+    mode: 'Design + Engineering',
+    tags: ['SwiftUI', 'Swift Charts', 'Firebase'],
     url: undefined,
   },
   {
     id: 4,
-    name: 'Storia',
+    slug: 'gdg-checkin',
+    name: 'GDG Check-In App',
     description:
-      'Personal story development platform for screenwriters. Built with React, TypeScript, and Firebase. Implemented auth with cookies and session storage, and designed high-fidelity interfaces across web and mobile.',
-    mode: 'Design + Engineering',
-    tags: ['React', 'TypeScript', 'Firebase'],
-    url: undefined,
+      'Real-time event check-in system with live dashboards, QR self-service check-in, role-based access, Bevy CSV import, and walk-in registration with atomic ticket numbering. Built using Claude Code. Now scaling to GDG Melbourne.',
+    mode: 'Engineering',
+    tags: ['React', 'Material UI', 'Firebase', 'Claude Code'],
+    url: 'https://gdgcheckin.com',
   },
   {
     id: 5,
-    name: 'GDG Calendar App',
+    slug: 'storia',
+    name: 'Storia',
     description:
-      'An embeddable Google Calendar integration built for Notion. React + Firebase with an OAuth2 flow via Cloud Functions for secure API access, restricted to authorised clients only.',
-    mode: 'Engineering',
-    tags: ['React', 'Firebase', 'Google Calendar API', 'OAuth2'],
+      'Personal story development platform for screenwriters. Block-based document editing with folder and project organisation, collapsible sidebar, and Firebase auth. Designed high-fidelity interfaces across web and mobile.',
+    mode: 'Design + Engineering',
+    tags: ['React', 'TypeScript', 'Tailwind', 'Firebase'],
     url: undefined,
   },
 ];
 
 export const STACK = [
-  'SwiftUI', 'React', 'TypeScript', 'Firebase',
-  'MusicKit', 'Tailwind', 'Python', 'Figma',
+  'SwiftUI', 'React', 'Next.js', 'TypeScript',
+  'Firebase', 'MusicKit', 'Tailwind', 'Python', 'Claude Code', 'Figma',
 ];
-
-export const BIO =
-  "sydney-based developer with 3+ years taking products from idea to deployment. i've freelanced for startups, contracted remotely for a us-based screenwriting platform, and solo-shipped an app to the app store.\n\noutside of building, i organise gdg sydney, a community of 1,900+ developers, and have spoken at workshops on react and firebase at google hq. i previously helped grow the largest tech student community at the university of sydney to 2,300+ members.\n\ni was born in russia, speak some russian, and bring that international perspective to everything i build.";
 
 export const TECH_URLS: Record<string, string | undefined> = {
   SwiftUI: 'https://developer.apple.com/xcode/swiftui/',
   MusicKit: 'https://developer.apple.com/musickit/',
   React: 'https://react.dev',
+  'Next.js': 'https://nextjs.org',
   Firebase: 'https://firebase.google.com',
   TypeScript: 'https://www.typescriptlang.org',
   Tailwind: 'https://tailwindcss.com',
+  'Material UI': 'https://mui.com',
+  'Claude API': 'https://anthropic.com',
   Python: 'https://python.org',
+  'Claude Code': 'https://claude.ai/code',
+  'Swift Charts': 'https://developer.apple.com/documentation/charts',
   Figma: 'https://figma.com',
-  'Realtime Database': 'https://firebase.google.com/products/realtime-database',
-  Bevy: 'https://bevy.community',
-  iOS: 'https://developer.apple.com/ios/',
-  'Computer Vision': undefined,
-  ML: undefined,
-  'Google Calendar API': 'https://developers.google.com/calendar',
-  OAuth2: 'https://oauth.net/2/',
 };
 
 export const CONTACT = {
   email: 'hello@russal.dev',
-  github: 'https://github.com/russalarya',
-  linkedin: 'https://linkedin.com/in/russalarya',
+  github: 'https://github.com/rarya618',
+  linkedin: 'https://linkedin.com/in/rarya618',
   resume: '/resume.pdf',
 };
