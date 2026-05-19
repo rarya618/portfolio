@@ -12,27 +12,35 @@ export const PROJECTS: Project[] = [
     url: 'https://tracksense.fm',
     process: {
       summary:
-        'Add your process summary here — a short paragraph about what drove this project, what problem it solved, and what you were trying to prove to yourself.',
+        'had the idea about three years ago because i kept having to open the mac app just to check my listening stats. only got around to building it last september. it was the perfect excuse to learn swift, and my process for learning anything is by doing. what was supposed to be a short project kept evolving into something no other app on the store does.',
       steps: [
         {
           number: 1,
-          title: 'research & scoping',
-          body: 'Describe your research phase here — user interviews, competitor analysis, what you learned.',
+          title: 'research & catalyst',
+          body: 'used a lot of stats apps before jumping in. most were years out of date, too slow, and felt abandoned. last.fm scrobbling was an option but added an unnecessary dependency when apple\'s own musickit already exposed the data natively. that was the unlock. i just wanted something fast, native, and well-designed on my phone.',
         },
         {
           number: 2,
           title: 'design',
-          body: 'Describe your design process — Figma explorations, key visual decisions, what you iterated on.',
+          body: 'jumped straight into figma before writing any swift. the first thing i designed was the landing page. initially a 3x3 grid for recents and top songs with a picker at the top to switch views. it looked clunky, caused loading issues, and needed workarounds i didn\'t want. redesigned it as a vertical scroll with six items per section and a see all button. that one change let me use system defaults throughout, improved loading, and removed all the workarounds.',
         },
         {
           number: 3,
-          title: 'engineering',
-          body: 'Describe how you built it — architecture choices, technical challenges, what you shipped.',
+          title: 'engineering & the pivot',
+          body: 'built v1 around the system player. felt fine until i realised musickit doesn\'t expose queue items through it, which was a dead end for building anything beyond stats. switching to the application player runs a sandboxed environment inside the app separate from the system. it was disappointing at first, but turned out to be a blessing in disguise. full control over playback and queue, a completely distinct experience from every other music app, and tapping a song from the dynamic island or lock screen opens tracksense instead of apple music. no other app does that. that\'s when it stopped being a stats app and became a music app powered by apple music. real-time sync runs on firebase realtime database, low latency, free to scale, and i already knew the sdk. integrating firebase into swift was a pain though. surprisingly little support out there for it.',
+        },
+        {
+          number: 4,
+          title: 'auth',
+          body: 'auth wasn\'t planned from the start. the app launched with firebase anonymous sign in, no login, no passwords, no friction. it worked until users told me they wanted to control their music from other devices. that\'s when i built auth codes, short codes you enter to sign in on a new device without a password. the codes are hashed and never stored in plain text. when you enter one, the hash is compared. the code is only visible once when it\'s created and disappears when you close the screen. regenerating a new one revokes the old one. recovery emails cover the case where someone loses access entirely. share codes go further, giving scoped access to your account so someone else can control playback without touching anything else. similar to permissions in google docs, but for your music.',
         },
       ],
       decisions: [
-        'Add a key decision or tradeoff you made here.',
-        'And another one — what did you choose and why?',
+        'anonymous auth over traditional login. no passwords means no friction at sign up. auth codes and recovery emails handle the edge cases.',
+        'application player over system player. was disappointed to make the switch, but it gave full queue control and made the app genuinely its own thing.',
+        'firebase realtime database over firestore for live sync. latency matters when syncing playback state between devices in real time.',
+        'musickit directly over last.fm scrobbling. faster, more accurate, and consistent with the rest of ios.',
+        'vertical scroll over 3x3 grid. one redesign that fixed loading, removed workarounds, and made everything feel native.',
       ],
     },
   },
