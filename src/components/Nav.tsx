@@ -1,7 +1,8 @@
 import { useState } from 'react';
+// import { Link } from 'react-router-dom';
 import { CONTACT } from '../data';
 
-const links = [
+const hashLinks = [
   { label: 'work', href: '#work' },
   { label: 'about', href: '#about' },
   { label: 'contact', href: '#contact' },
@@ -29,8 +30,9 @@ export default function Nav() {
           russal arya
         </a>
 
-          {links.map(({ label, href, external }) => (
         <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
+          {/* <Link to="/community">community</Link> */}
+          {hashLinks.map(({ label, href, external }) => (
             <a key={label} href={href} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>
               {label}
             </a>
@@ -73,7 +75,8 @@ export default function Nav() {
           transition: 'opacity 0.2s',
         }}
       >
-        {links.map(({ label, href, external }) => (
+        {/* <Link to="/community" onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>community</Link> */}
+        {hashLinks.map(({ label, href, external }) => (
           <a
             key={label}
             href={href}

@@ -11,6 +11,22 @@ export interface ProjectProcess {
   decisions?: string[];
 }
 
+export interface GDGAssets {
+  banner?: string;
+  thumbnail?: string;
+  presentation?: string;
+  video?: string;
+}
+
+export interface GDGEvent {
+  id: number;
+  title: string;
+  status?: 'rescheduled';
+  role?: string;
+  description: string;
+  assets: GDGAssets;
+}
+
 export interface Project {
   id: number;
   slug: string;
