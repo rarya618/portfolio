@@ -25,12 +25,12 @@ export default function Nav() {
           padding: '1rem 8vw',
         }}
       >
-        <a href="#" style={{ fontSize: '0.8125rem', opacity: 0.9 }}>
+        <a href="#" style={{ fontSize: '0.8125rem', opacity: 1 }}>
           russal arya
         </a>
 
-        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.65 }}>
           {links.map(({ label, href, external }) => (
+        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
             <a key={label} href={href} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>
               {label}
             </a>
@@ -50,9 +50,9 @@ export default function Nav() {
             padding: '4px',
           }}
         >
-          <span style={{ display: 'block', width: '20px', height: '1px', background: 'var(--fg)', opacity: open ? 0 : 0.7, transition: 'opacity 0.2s' }} />
-          <span style={{ display: 'block', width: '20px', height: '1px', background: 'var(--fg)', opacity: 0.7 }} />
-          <span style={{ display: 'block', width: '20px', height: '1px', background: 'var(--fg)', opacity: open ? 0 : 0.7, transition: 'opacity 0.2s' }} />
+          <span style={{ display: 'block', width: '20px', height: '1px', background: 'var(--fg)', opacity: open ? 0 : 0.85, transition: 'opacity 0.2s' }} />
+          <span style={{ display: 'block', width: '20px', height: '1px', background: 'var(--fg)', opacity: 0.85 }} />
+          <span style={{ display: 'block', width: '20px', height: '1px', background: 'var(--fg)', opacity: open ? 0 : 0.85, transition: 'opacity 0.2s' }} />
         </button>
       </nav>
 
@@ -79,7 +79,7 @@ export default function Nav() {
             href={href}
             onClick={() => setOpen(false)}
             {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-            style={{ fontSize: '1.5rem', opacity: 0.7, paddingBlock: '0.75rem' }}
+            style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}
           >
             {label}
           </a>

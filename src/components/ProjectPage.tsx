@@ -12,7 +12,7 @@ export default function ProjectPage() {
       <main>
         <Nav />
         <section style={{ padding: '8vmin 8vw' }}>
-          <a href="/#work" style={{ fontSize: '0.6875rem', opacity: 0.55, textDecoration: 'none', display: 'inline-block', marginBottom: '3rem' }}>
+          <a href="/#work" style={{ fontSize: '0.6875rem', opacity: 0.7, textDecoration: 'none', display: 'inline-block', marginBottom: '3rem' }}>
             ← back
           </a>
           <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '1rem' }}>## 404</p>
