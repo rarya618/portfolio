@@ -6,7 +6,6 @@ const hashLinks = [
   { label: 'work', href: '/#work' },
   { label: 'about', href: '/#about' },
   { label: 'contact', href: '/#contact' },
-  { label: 'resume ↗', href: CONTACT.resume, external: true },
 ];
 
 export default function Nav() {
@@ -40,17 +39,16 @@ export default function Nav() {
           padding: '1rem 8vw',
         }}
       >
-        <a href="/" style={{ fontSize: '0.8125rem', opacity: 1 }}>
+        <Link to="/" style={{ fontSize: '0.8125rem', opacity: 1 }}>
           russal arya
-        </a>
+        </Link>
 
         <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
           <Link to="/consulting">consulting</Link>
-          {hashLinks.map(({ label, href, external }) => (
-            <a key={label} href={href} {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}>
-              {label}
-            </a>
+          {hashLinks.map(({ label, href }) => (
+            <a key={label} href={href}>{label}</a>
           ))}
+          <a href={CONTACT.resume} target="_blank" rel="noreferrer">resume ↗</a>
         </div>
 
         <button
@@ -93,17 +91,12 @@ export default function Nav() {
         }}
       >
         <Link to="/consulting" onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>consulting</Link>
-        {hashLinks.map(({ label, href, external }) => (
-          <a
-            key={label}
-            href={href}
-            onClick={() => setOpen(false)}
-            {...(external ? { target: '_blank', rel: 'noreferrer' } : {})}
-            style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}
-          >
-            {label}
-          </a>
+        {hashLinks.map(({ label, href }) => (
+          <a key={label} href={href} onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>{label}</a>
         ))}
+        <a href={CONTACT.resume} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>
+          resume ↗
+        </a>
       </div>
     </>
   );

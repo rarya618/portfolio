@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import Nav from './Nav';
 
 export default function NotFound() {
@@ -14,7 +15,7 @@ export default function NotFound() {
           nothing here.
         </p>
         <p style={{ fontSize: '0.6875rem', opacity: 0.7 }}>
-          <a href="/" className="prose-link">← back to home</a>
+          <Link to="/" className="prose-link">← back to home</Link>
         </p>
       </section>
     </main>

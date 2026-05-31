@@ -18,12 +18,12 @@ export default function ConsultingPage() {
       <Nav />
 
       <section style={{ padding: '8vmin 8vw', maxWidth: '900px' }}>
-        <a
-          href="/"
+        <Link
+          to="/"
           style={{ fontSize: '0.6875rem', opacity: 0.7, textDecoration: 'none', display: 'inline-block', marginBottom: '4rem' }}
         >
           ← back
-        </a>
+        </Link>
 
         <h1 style={{
           fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
