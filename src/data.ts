@@ -53,6 +53,38 @@ export const PROJECTS: Project[] = [
     mode: 'Design + Engineering',
     tags: ['Next.js', 'Claude API', 'TypeScript', 'Claude Code'],
     url: 'https://tailr.russal.dev',
+    process: {
+      summary:
+        'built tailr while i was actively applying for jobs. i kept struggling to isolate the right keywords from job listings — what actually matters versus what\'s boilerplate. the best part about building it was that i was using it the entire time, which meant the feedback loop was immediate and personal.',
+      steps: [
+        {
+          number: 1,
+          title: 'the problem',
+          body: 'every job listing reads differently. some bury the real requirements in the middle of a wall of text, others front-load buzzwords that don\'t reflect what the role actually needs. manually reading through them to pull out what to emphasise on a resume takes too long and it\'s easy to miss things. i wanted something that could surface the signal and cut the noise — ranked by how much it actually mattered for the role.',
+        },
+        {
+          number: 2,
+          title: 'building the keyword extractor',
+          body: 'the core of tailr is a structured prompt to the [claude api](https://anthropic.com) that takes a job listing — either pasted text or a url — and returns a ranked breakdown of skills, qualifications, and tone signals. the prompt is designed to output a consistent structure so the front end can parse and display it reliably without post-processing guesswork. getting that structure right took iteration: too loose and the output was inconsistent, too rigid and it missed nuance.',
+        },
+        {
+          number: 3,
+          title: 'adding the resume analyser',
+          body: 'using tailr to analyse listings made the next gap obvious: once you know what a job is looking for, you still have to manually compare that against your own resume. that was the part taking the most time. so i added a resume analyser alongside the keyword extractor. you upload your resume, tailr reads it against the listing, and tells you where you align and where you don\'t. the feature came directly from using the product — i wouldn\'t have thought to add it otherwise.',
+        },
+        {
+          number: 4,
+          title: 'the pdf pivot',
+          body: 'getting resume content out of pdfs was the main technical headache. the first approach failed to extract text reliably — formatting, fonts, and layout all caused problems. the fix was converting pdfs to base64 and sending them directly to the [claude api](https://anthropic.com), which handles the extraction natively. cleaner, more reliable, and removed a layer of fragile parsing logic i didn\'t want to maintain.',
+        },
+      ],
+      decisions: [
+        'structured api output over free-form text. a predictable response shape meant the front end could be built confidently without needing to parse or sanitise unpredictable output.',
+        'base64 pdf over text extraction. native model handling was more reliable than any parsing library i tried and required significantly less code.',
+        'dogfooding throughout. using tailr on real job listings while building it shaped every feature decision. the resume analyser only exists because i felt the gap personally.',
+        'url input alongside paste. not every listing is easy to copy cleanly. supporting both meant the tool was actually usable in the workflow it was designed for.',
+      ],
+    },
   },
   {
     id: 3,
@@ -195,11 +227,12 @@ export const GDG_EVENTS: GDGEvent[] = [
 ];
 
 export const CONSULTING = {
-  pitch: 'available for contract work with startups and studios.',
-  availability: 'currently accepting new clients.',
+  pitch: 'i take on contract work for founders and teams who need a senior engineer without a full-time hire.',
+  availability: 'currently accepting new clients',
+  forWho: 'best fit for early-stage startups, solo founders, and small teams who need to move fast — whether that\'s building from scratch, extending an existing codebase, or working through a technical decision.',
   services: [
     { label: 'full-stack web', detail: 'React · TypeScript · Firebase' },
-    { label: 'mobile development', detail: 'SwiftUI · MusicKit · App Store · Android' },
+    { label: 'iOS development', detail: 'SwiftUI · MusicKit · App Store' },
     { label: 'firebase / backend', detail: 'auth · realtime DB · cloud functions' },
     { label: 'technical advisory', detail: 'stack choices · architecture · code review' },
   ],
