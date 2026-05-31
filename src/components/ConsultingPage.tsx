@@ -25,68 +25,123 @@ export default function ConsultingPage() {
           ← back
         </Link>
 
+        <div style={{ marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <span style={{
+            display: 'inline-block',
+            width: '5px',
+            height: '5px',
+            borderRadius: '50%',
+            background: 'var(--fg)',
+            opacity: 0.55,
+            flexShrink: 0,
+          }} />
+          <span style={{ fontSize: '0.6875rem', opacity: 0.55, letterSpacing: '0.01em' }}>
+            {CONSULTING.availability}
+          </span>
+        </div>
+
         <h1 style={{
           fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
           fontWeight: 300,
           letterSpacing: '-0.03em',
           lineHeight: 0.95,
-          opacity: 1,
-          marginBottom: '2rem',
+          marginBottom: '2.5rem',
         }}>
           consulting
         </h1>
 
-        <p style={{ fontSize: '0.6875rem', opacity: 0.65, marginBottom: '4rem' }}>
-          {CONSULTING.availability}
+        <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, opacity: 0.9, maxWidth: '60ch', marginBottom: '1.5rem' }}>
+          {CONSULTING.pitch}
         </p>
 
-        <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, opacity: 0.9, maxWidth: '60ch', marginBottom: '5rem' }}>
-          {CONSULTING.pitch} i work with founders and teams who need a senior engineer without hiring full-time — whether that's building a product from scratch, extending an existing codebase, or thinking through a technical decision.
+        <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.55, maxWidth: '60ch', marginBottom: '6rem' }}>
+          {CONSULTING.forWho}
         </p>
 
+        {/* Services */}
         <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2.5rem' }}>
           ## services
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '5rem' }}>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '2.5rem 4rem',
+          marginBottom: '6rem',
+          maxWidth: '680px',
+        }}>
           {CONSULTING.services.map((service) => (
-            <div key={service.label} style={{ display: 'flex', gap: '3rem', alignItems: 'baseline' }}>
-              <span style={{ fontSize: '0.8125rem', opacity: 1, minWidth: '14ch' }}>{service.label}</span>
-              <span style={{ fontSize: '0.75rem', opacity: 0.5 }}>{service.detail}</span>
+            <div key={service.label}>
+              <p style={{ fontSize: '0.8125rem', opacity: 1, marginBottom: '0.375rem' }}>
+                {service.label}
+              </p>
+              <p style={{ fontSize: '0.6875rem', opacity: 0.45, letterSpacing: '0.01em' }}>
+                {service.detail}
+              </p>
             </div>
           ))}
         </div>
 
+        {/* Process */}
         <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2.5rem' }}>
           ## how it works
         </p>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', marginBottom: '5rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2.75rem', marginBottom: '6rem' }}>
           {CONSULTING.process.map((item) => (
-            <div key={item.step} style={{ display: 'flex', gap: '2rem' }}>
-              <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>[{item.step}]</span>
+            <div key={item.step} style={{ display: 'flex', gap: '2.5rem', alignItems: 'flex-start' }}>
+              <span style={{
+                fontSize: 'clamp(1.25rem, 2vw, 1.75rem)',
+                fontWeight: 300,
+                letterSpacing: '-0.02em',
+                opacity: 0.15,
+                flexShrink: 0,
+                lineHeight: 1,
+                paddingTop: '0.1rem',
+                minWidth: '2ch',
+              }}>
+                {item.step}
+              </span>
               <div>
-                <p style={{ fontSize: '0.8125rem', opacity: 1, marginBottom: '0.375rem' }}>{item.title}</p>
-                <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.7, maxWidth: '55ch' }}>{item.body}</p>
+                <p style={{ fontSize: '0.8125rem', opacity: 1, marginBottom: '0.4rem' }}>{item.title}</p>
+                <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.6, maxWidth: '52ch' }}>{item.body}</p>
               </div>
             </div>
           ))}
         </div>
 
+        {/* Past work */}
         <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2.5rem' }}>
           ## past work
         </p>
 
-        <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch', marginBottom: '5rem' }}>
+        <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch', marginBottom: '8rem' }}>
           the <Link to="/#work" className="prose-link">projects section</Link> shows the kind of work i do — production web apps, native iOS, and full-stack systems built and shipped end-to-end.
         </p>
 
-        <p style={{ fontSize: '0.9375rem', opacity: 1, marginBottom: '0.5rem' }}>
-          <a href={`mailto:${CONTACT.email}`} className="prose-link">
-            get in touch ↗
-          </a>
+        {/* CTA */}
+        <p style={{ fontSize: '0.6875rem', opacity: 0.45, marginBottom: '1.25rem', letterSpacing: '0.01em' }}>
+          ready to start?
         </p>
-        <p style={{ fontSize: '0.75rem', opacity: 0.5 }}>{CONTACT.email}</p>
+
+        <a
+          href={`mailto:${CONTACT.email}`}
+          style={{
+            fontSize: 'clamp(1.25rem, 3vw, 2.25rem)',
+            fontWeight: 300,
+            letterSpacing: '-0.025em',
+            opacity: 0.9,
+            display: 'inline-block',
+            textDecoration: 'none',
+            color: 'var(--fg)',
+            marginBottom: '0.75rem',
+          }}
+          className="prose-link"
+        >
+          {CONTACT.email}
+        </a>
+
+        <p style={{ fontSize: '0.6875rem', opacity: 0.35 }}>or just say hello</p>
       </section>
     </main>
   );
