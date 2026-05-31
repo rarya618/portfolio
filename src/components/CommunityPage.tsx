@@ -104,6 +104,7 @@ export default function CommunityPage() {
                           <img
                             src={event.assets.banner}
                             alt={`${event.title} banner`}
+                            loading="lazy"
                             style={{ width: '100%', borderRadius: '4px', display: 'block', opacity: 0.9 }}
                           />
                         </div>
@@ -114,6 +115,7 @@ export default function CommunityPage() {
                           <img
                             src={event.assets.thumbnail}
                             alt={`${event.title} thumbnail`}
+                            loading="lazy"
                             style={{ width: '100%', borderRadius: '4px', display: 'block', opacity: 0.9 }}
                           />
                         </div>
@@ -128,6 +130,7 @@ export default function CommunityPage() {
                       <div style={{ position: 'relative', width: '100%', maxWidth: '640px', paddingTop: '56.25%' }}>
                         <iframe
                           src={event.assets.presentation}
+                          loading="lazy"
                           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', borderRadius: '4px', border: 'none' }}
                           allowFullScreen
                           title={`${event.title} presentation`}
@@ -143,6 +146,7 @@ export default function CommunityPage() {
                       <div style={{ position: 'relative', width: '100%', maxWidth: '640px', paddingTop: '56.25%' }}>
                         <iframe
                           src={event.assets.video}
+                          loading="lazy"
                           style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', borderRadius: '4px', border: 'none' }}
                           allowFullScreen
                           title={`${event.title} display video`}

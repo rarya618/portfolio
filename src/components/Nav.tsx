@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { CONTACT } from '../data';
 
@@ -11,6 +11,20 @@ const hashLinks = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false); };
+    const onClickOutside = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    document.addEventListener('mousedown', onClickOutside);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.removeEventListener('mousedown', onClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -42,6 +56,8 @@ export default function Nav() {
         <button
           className="hamburger"
           onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
           style={{
             display: 'none',
             flexDirection: 'column',
@@ -60,6 +76,7 @@ export default function Nav() {
 
       {/* Mobile menu */}
       <div
+        ref={menuRef}
         className="mobile-menu"
         style={{
           display: 'none',

@@ -153,6 +153,7 @@ export default function ProjectPage() {
                             key={idx}
                             src={src}
                             alt=""
+                            loading="lazy"
                             style={{ width: '100%', maxWidth: '640px', opacity: 0.9, borderRadius: '4px', display: 'block' }}
                           />
                         ))}
