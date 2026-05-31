@@ -194,6 +194,22 @@ export const GDG_EVENTS: GDGEvent[] = [
   },
 ];
 
+export const CONSULTING = {
+  pitch: 'available for contract work with startups and studios.',
+  availability: 'currently accepting new clients.',
+  services: [
+    { label: 'full-stack web', detail: 'React · TypeScript · Firebase' },
+    { label: 'mobile development', detail: 'SwiftUI · MusicKit · App Store · Android' },
+    { label: 'firebase / backend', detail: 'auth · realtime DB · cloud functions' },
+    { label: 'technical advisory', detail: 'stack choices · architecture · code review' },
+  ],
+  process: [
+    { step: '01', title: 'discovery', body: 'a short call to understand the problem, what you\'ve tried, and what a good outcome looks like. no commitment.' },
+    { step: '02', title: 'proposal', body: 'a clear scope of work with deliverables, timeline, and a fixed or time-based rate. nothing vague.' },
+    { step: '03', title: 'delivery', body: 'build in close collaboration, ship, and hand off cleanly. i stay available for questions after.' },
+  ],
+};
+
 export const CONTACT = {
   email: 'hello@russal.dev',
   github: 'https://github.com/rarya618',
