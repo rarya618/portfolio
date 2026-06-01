@@ -55,34 +55,35 @@ export const PROJECTS: Project[] = [
     url: 'https://tailr.russal.dev',
     process: {
       summary:
-        'built tailr while i was actively applying for jobs. i kept struggling to isolate the right keywords from job listings — what actually matters versus what\'s boilerplate. the best part about building it was that i was using it the entire time, which meant the feedback loop was immediate and personal.',
+        'built tailr while i was actively applying for jobs. i kept struggling to isolate the right keywords from job listings: what actually matters versus what\'s boilerplate. it was also my first time using [next.js](https://nextjs.org), so i was learning the framework and solving a real problem at the same time. the best part about building it was that i was using it the entire time, which meant the feedback loop was immediate and personal.',
       steps: [
         {
           number: 1,
           title: 'the problem',
-          body: 'every job listing reads differently. some bury the real requirements in the middle of a wall of text, others front-load buzzwords that don\'t reflect what the role actually needs. manually reading through them to pull out what to emphasise on a resume takes too long and it\'s easy to miss things. i wanted something that could surface the signal and cut the noise — ranked by how much it actually mattered for the role.',
+          body: 'every job listing reads differently. some bury the real requirements in the middle of a wall of text, others front-load buzzwords that don\'t reflect what the role actually needs. manually reading through them to pull out what to emphasise on a resume takes too long and it\'s easy to miss things. i wanted something that could surface the signal and cut the noise, ranked by how much it actually mattered for the role.',
         },
         {
           number: 2,
           title: 'building the keyword extractor',
-          body: 'the core of tailr is a structured prompt to the [claude api](https://anthropic.com) that takes a job listing — either pasted text or a url — and returns a ranked breakdown of skills, qualifications, and tone signals. the prompt is designed to output a consistent structure so the front end can parse and display it reliably without post-processing guesswork. getting that structure right took iteration: too loose and the output was inconsistent, too rigid and it missed nuance.',
+          body: 'the core of tailr is a structured prompt to the [claude api](https://anthropic.com) that returns a consistent json shape: technical skills, soft skills, required qualifications, nice-to-haves, industry domain, and a bonus: the company name and job title extracted directly from the listing. when a url is provided instead of pasted text, [cheerio](https://cheerio.js.org) scrapes the page, strips out nav, headers, and footers, then cascades through a series of css selectors to isolate the actual job description content before passing it to the model. the prompt is designed to produce the same structure every time so the front end can render it without any post-processing guesswork.',
         },
         {
           number: 3,
           title: 'adding the resume analyser',
-          body: 'using tailr to analyse listings made the next gap obvious: once you know what a job is looking for, you still have to manually compare that against your own resume. that was the part taking the most time. so i added a resume analyser alongside the keyword extractor. you upload your resume, tailr reads it against the listing, and tells you where you align and where you don\'t. the feature came directly from using the product — i wouldn\'t have thought to add it otherwise.',
+          body: 'using tailr to analyse listings made the next gap obvious: once you know what a job is looking for, you still have to manually compare that against your resume. that was the part taking the most time. so i added a resume analyser alongside the keyword extractor. you upload your resume, tailr scores it against the extracted keywords, and returns a weighted breakdown: required qualifications count for 40% of the score, technical skills 30%, soft skills 15%, nice-to-haves 10%, industry domain 5%. it also surfaces three to five concrete suggestions, not just a number. the feature came directly from using the product. i wouldn\'t have thought to add it otherwise.',
         },
         {
           number: 4,
-          title: 'the pdf pivot',
-          body: 'getting resume content out of pdfs was the main technical headache. the first approach failed to extract text reliably — formatting, fonts, and layout all caused problems. the fix was converting pdfs to base64 and sending them directly to the [claude api](https://anthropic.com), which handles the extraction natively. cleaner, more reliable, and removed a layer of fragile parsing logic i didn\'t want to maintain.',
+          title: 'the pdf and docx approaches',
+          body: 'the resume analyser needed to read files reliably. the first attempt used pdfparser, which failed to process pdfs at all. not unreliable output, just nothing. switching to the [claude api](https://anthropic.com)\'s native document support fixed it: pdfs are base64-encoded and sent directly, and the model reads them as-is without any extraction layer. docx files take a different path: [mammoth](https://github.com/mwilliamson/mammoth.js) extracts the raw text, which then gets sent as plain text in the prompt. the two-path approach handles the formats people actually use without forcing anyone to convert before uploading.',
         },
       ],
       decisions: [
-        'structured api output over free-form text. a predictable response shape meant the front end could be built confidently without needing to parse or sanitise unpredictable output.',
-        'base64 pdf over text extraction. native model handling was more reliable than any parsing library i tried and required significantly less code.',
+        'structured json output over free-form text. a predictable response shape meant the front end could be built confidently without needing to parse or sanitise unpredictable output.',
+        'cheerio for url scraping. stripping nav and boilerplate before sending to the model kept the context clean and reduced noise in the extraction.',
+        'weighted scoring over a flat score. a single number hides where the gaps actually are. breaking it out by category with concrete suggestions made the output actionable.',
+        'native pdf reading over text extraction. sending base64 directly to the claude api was more reliable than any extraction library and required significantly less code.',
         'dogfooding throughout. using tailr on real job listings while building it shaped every feature decision. the resume analyser only exists because i felt the gap personally.',
-        'url input alongside paste. not every listing is easy to copy cleanly. supporting both meant the tool was actually usable in the workflow it was designed for.',
       ],
     },
   },
@@ -176,7 +177,7 @@ export const GDG_EVENTS: GDGEvent[] = [
   {
     id: 1,
     title: 'burnout to boardroom: architecting your ai c-suite with vertex ai',
-    description: 'my first event as solo host. covered how to use vertex ai to build and manage an ai-powered leadership layer for your organisation. did the full visual design for the event — banner, thumbnail, and presentation.',
+    description: 'my first event as solo host. covered how to use vertex ai to build and manage an ai-powered leadership layer for your organisation. did the full visual design for the event: banner, thumbnail, and presentation.',
     assets: {
       banner: '',
       thumbnail: '',
@@ -229,7 +230,7 @@ export const GDG_EVENTS: GDGEvent[] = [
 export const CONSULTING = {
   pitch: 'i take on contract work for founders and teams who need a senior engineer without a full-time hire.',
   availability: 'currently accepting new clients',
-  forWho: 'best fit for early-stage startups, solo founders, and small teams who need to move fast — whether that\'s building from scratch, extending an existing codebase, or working through a technical decision.',
+  forWho: 'best fit for early-stage startups, solo founders, and small teams who need to move fast, whether that\'s building from scratch, extending an existing codebase, or working through a technical decision.',
   services: [
     { label: 'full-stack web', detail: 'React · TypeScript · Firebase' },
     { label: 'iOS development', detail: 'SwiftUI · MusicKit · App Store' },
