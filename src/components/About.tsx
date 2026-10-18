@@ -5,24 +5,24 @@ function Bio() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <p>
-        sydney-based product builder with 3+ years taking ideas from concept to deployment. i design and
-        engineer. the line between them doesn't exist for me. i've freelanced for startups, contracted
-        remotely for a us-based screenwriting platform, and solo-shipped a{' '}
+        sydney-based product builder with 3+ years of experience. i do both the design and the
+        engineering. i've freelanced for startups, contracted remotely for a us-based screenwriting
+        platform, and shipped a{' '}
         <a href="https://tracksense.fm" target="_blank" rel="noreferrer" className="prose-link">
           consumer app to the app store
-        </a>. i build with ai-powered speed using claude code across every project.
+        </a> on my own. i use claude code on every project.
       </p>
       <p>
         outside of building, i organise{' '}
         <a href="https://gdg.community.dev/gdg-sydney/" target="_blank" rel="noreferrer" className="prose-link">
           gdg sydney
         </a>
-        , a community of 2,000+ developers, and am the primary point of contact between gdg sydney and google.
-        i host workshops and go deep on design for my own events. i've also instructed a build with ai workshop at google hq.{' '}
+        , a community of 2,000+ developers, and i'm the main contact between the chapter and google.
+        i host workshops and do all the design for my own events. i've also taught a build with ai workshop at google hq.{' '}
         <Link to="/community" className="prose-link">see the design work.</Link>
       </p>
       <p>
-        i was born in russia, speak some russian, and bring that international perspective to everything i build.
+        i was born in russia and still speak some russian.
       </p>
     </div>
   );

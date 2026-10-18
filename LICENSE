@@ -1,11 +1,9 @@
 Copyright (C) 2026 Russal Arya
 
-The source code in this repository is licensed under the GNU General Public
-License v3.0, reproduced below.
+The code in this repo is licensed under the GPL v3, which is below.
 
-This license does not cover the site's written content (including the copy in
-src/data.ts and the files in content/) or public/resume.pdf. That material is
-(C) Russal Arya, all rights reserved, and may not be reused without permission.
+The GPL doesn't cover my writing (the copy in src/data.ts and the files in
+content/) or public/resume.pdf. Those are mine, all rights reserved.
 
 --------------------------------------------------------------------------------
 

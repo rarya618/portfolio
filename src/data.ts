@@ -6,7 +6,7 @@ export const PROJECTS: Project[] = [
     slug: 'tracksense',
     name: 'TrackSense',
     description:
-      'Solo-designed and shipped a consumer iOS app end-to-end, from product concept and motion UI design to App Store release. Features real-time playback sync, shared listening sessions via 6-character share codes, dynamic album art color theming, and a web dashboard with library stats. Built full-stack using Claude Code: SwiftUI + MusicKit on iOS, React + Vite + Tailwind on web, Firebase Cloud Functions on the backend.',
+      'An iOS music app built on Apple Music. It started as a way to check my listening stats and turned into a full player. Playback syncs across devices in real time, you can share a listening session with a 6-character code, and the app themes itself from the album art. There\'s a web dashboard for library stats too. I designed and built it on my own, from Figma to the App Store.',
     mode: 'Design + Engineering',
     tags: ['SwiftUI', 'MusicKit', 'React', 'Tailwind', 'Firebase', 'Claude Code'],
     url: 'https://tracksense.fm',
@@ -17,7 +17,7 @@ export const PROJECTS: Project[] = [
         {
           number: 1,
           title: 'research & catalyst',
-          body: 'used a lot of stats apps before jumping in. most were years out of date, too slow, and felt abandoned. [last.fm](https://last.fm) scrobbling was an option but added an unnecessary dependency when apple\'s own [musickit](https://developer.apple.com/musickit/) already exposed the data natively. that was the unlock. i just wanted something fast, native, and well-designed on my phone.',
+          body: 'used a lot of stats apps before jumping in. most were years out of date, too slow, and felt abandoned. [last.fm](https://last.fm) scrobbling was an option but added an unnecessary dependency when apple\'s own [musickit](https://developer.apple.com/musickit/) already exposed the data natively. that settled it. i just wanted something fast, native, and well-designed on my phone.',
         },
         {
           number: 2,
@@ -27,7 +27,7 @@ export const PROJECTS: Project[] = [
         {
           number: 3,
           title: 'engineering & the pivot',
-          body: 'built v1 around the system player. felt fine until i realised [musickit](https://developer.apple.com/musickit/) doesn\'t expose queue items through it, which was a dead end for building anything beyond stats. switching to the application player runs a sandboxed environment inside the app separate from the system. it was disappointing at first, but turned out to be a blessing in disguise. full control over playback and queue, a completely distinct experience from every other music app, and tapping a song from the [dynamic island](https://developer.apple.com/design/human-interface-guidelines/dynamic-island) or lock screen opens tracksense instead of apple music. no other app does that. that\'s when it stopped being a stats app and became a music app powered by apple music. real-time sync runs on [firebase realtime database](https://firebase.google.com/products/realtime-database), low latency, free to scale, and i already knew the sdk. integrating firebase into swift was a pain though. surprisingly little support out there for it.',
+          body: 'built v1 around the system player. felt fine until i realised [musickit](https://developer.apple.com/musickit/) doesn\'t expose queue items through it, which was a dead end for building anything beyond stats. switching to the application player runs a sandboxed environment inside the app separate from the system. it was disappointing at first, but it ended up being the right call. full control over playback and queue, a completely distinct experience from every other music app, and tapping a song from the [dynamic island](https://developer.apple.com/design/human-interface-guidelines/dynamic-island) or lock screen opens tracksense instead of apple music. no other app does that. that\'s when it stopped being a stats app and became a music app powered by apple music. real-time sync runs on [firebase realtime database](https://firebase.google.com/products/realtime-database), low latency, free to scale, and i already knew the sdk. integrating firebase into swift was a pain though. surprisingly little support out there for it.',
         },
         {
           number: 4,
@@ -49,41 +49,41 @@ export const PROJECTS: Project[] = [
     slug: 'tailr',
     name: 'Tailr',
     description:
-      'A Next.js tool that analyses job listings (via pasted text or URL) and uses the Claude API to extract ranked skills, qualifications, and tone signals to help candidates tailor their resume. Designed and shipped end-to-end using Claude Code.',
+      'Paste in a job listing or its URL and Tailr uses the Claude API to pull out the skills, qualifications and tone it\'s asking for, ranked by importance. Upload your resume and it scores how well you match. I built it in Next.js while I was job hunting.',
     mode: 'Design + Engineering',
     tags: ['Next.js', 'Claude API', 'TypeScript', 'Claude Code'],
     url: 'https://tailr.russal.dev',
     process: {
       summary:
-        'built tailr while i was actively applying for jobs. i kept struggling to isolate the right keywords from job listings: what actually matters versus what\'s boilerplate. it was also my first time using [next.js](https://nextjs.org), so i was learning the framework and solving a real problem at the same time. the best part about building it was that i was using it the entire time, which meant the feedback loop was immediate and personal.',
+        'built tailr while i was actively applying for jobs. i kept struggling to isolate the right keywords from job listings: what actually matters versus what\'s boilerplate. it was also my first time using [next.js](https://nextjs.org), so i was learning the framework and solving a real problem at the same time. i was also using it the whole time i was building it, so i found problems straight away.',
       steps: [
         {
           number: 1,
           title: 'the problem',
-          body: 'every job listing reads differently. some bury the real requirements in the middle of a wall of text, others front-load buzzwords that don\'t reflect what the role actually needs. manually reading through them to pull out what to emphasise on a resume takes too long and it\'s easy to miss things. i wanted something that could surface the signal and cut the noise, ranked by how much it actually mattered for the role.',
+          body: 'every job listing reads differently. some bury the real requirements in the middle of a wall of text, others front-load buzzwords that don\'t reflect what the role actually needs. manually reading through them to pull out what to emphasise on a resume takes too long and it\'s easy to miss things. i wanted something that pulled out what mattered and ranked it by how much it mattered for the role.',
         },
         {
           number: 2,
           title: 'building the keyword extractor',
-          body: 'the core of tailr is a structured prompt to the [claude api](https://anthropic.com) that returns a consistent json shape: technical skills, soft skills, required qualifications, nice-to-haves, industry domain, and a bonus: the company name and job title extracted directly from the listing. when a url is provided instead of pasted text, [cheerio](https://cheerio.js.org) scrapes the page, strips out nav, headers, and footers, then cascades through a series of css selectors to isolate the actual job description content before passing it to the model. the prompt is designed to produce the same structure every time so the front end can render it without any post-processing guesswork.',
+          body: 'the core of tailr is a structured prompt to the [claude api](https://anthropic.com) that returns a consistent json shape: technical skills, soft skills, required qualifications, nice-to-haves, industry domain, and a bonus: the company name and job title extracted directly from the listing. when a url is provided instead of pasted text, [cheerio](https://cheerio.js.org) scrapes the page, strips out nav, headers, and footers, then cascades through a series of css selectors to isolate the actual job description content before passing it to the model. the prompt returns the same structure every time, so the front end can render it as is.',
         },
         {
           number: 3,
           title: 'adding the resume analyser',
-          body: 'using tailr to analyse listings made the next gap obvious: once you know what a job is looking for, you still have to manually compare that against your resume. that was the part taking the most time. so i added a resume analyser alongside the keyword extractor. you upload your resume, tailr scores it against the extracted keywords, and returns a weighted breakdown: required qualifications count for 40% of the score, technical skills 30%, soft skills 15%, nice-to-haves 10%, industry domain 5%. it also surfaces three to five concrete suggestions, not just a number. the feature came directly from using the product. i wouldn\'t have thought to add it otherwise.',
+          body: 'using tailr to analyse listings made the next gap obvious: once you know what a job is looking for, you still have to manually compare that against your resume. that was the part taking the most time. so i added a resume analyser alongside the keyword extractor. you upload your resume, tailr scores it against the extracted keywords, and returns a weighted breakdown: required qualifications count for 40% of the score, technical skills 30%, soft skills 15%, nice-to-haves 10%, industry domain 5%. it also gives three to five specific suggestions. i only thought to add this because i was using tailr myself.',
         },
         {
           number: 4,
           title: 'the pdf and docx approaches',
-          body: 'the resume analyser needed to read files reliably. the first attempt used pdfparser, which failed to process pdfs at all. not unreliable output, just nothing. switching to the [claude api](https://anthropic.com)\'s native document support fixed it: pdfs are base64-encoded and sent directly, and the model reads them as-is without any extraction layer. docx files take a different path: [mammoth](https://github.com/mwilliamson/mammoth.js) extracts the raw text, which then gets sent as plain text in the prompt. the two-path approach handles the formats people actually use without forcing anyone to convert before uploading.',
+          body: 'the resume analyser needed to read files reliably. the first attempt used pdfparser, which couldn\'t read pdfs at all. it just returned nothing. switching to the [claude api](https://anthropic.com)\'s native document support fixed it: pdfs are base64-encoded and sent directly, and the model reads them as-is without any extraction layer. docx files take a different path: [mammoth](https://github.com/mwilliamson/mammoth.js) extracts the raw text, which then gets sent as plain text in the prompt. that way people can upload whichever format they already have.',
         },
       ],
       decisions: [
-        'structured json output over free-form text. a predictable response shape meant the front end could be built confidently without needing to parse or sanitise unpredictable output.',
+        'structured json output over free-form text. the front end could rely on the shape instead of parsing whatever came back.',
         'cheerio for url scraping. stripping nav and boilerplate before sending to the model kept the context clean and reduced noise in the extraction.',
-        'weighted scoring over a flat score. a single number hides where the gaps actually are. breaking it out by category with concrete suggestions made the output actionable.',
-        'native pdf reading over text extraction. sending base64 directly to the claude api was more reliable than any extraction library and required significantly less code.',
-        'dogfooding throughout. using tailr on real job listings while building it shaped every feature decision. the resume analyser only exists because i felt the gap personally.',
+        'weighted scoring over a flat score. a single number doesn\'t tell you where the gaps are. a breakdown by category with suggestions tells you what to fix.',
+        'native pdf reading over text extraction. sending base64 straight to the claude api was more reliable than the extraction library i tried, and a lot less code.',
+        'using it myself the whole time. i ran tailr on real job listings while building it, and the resume analyser only exists because of that.',
       ],
     },
   },
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     slug: 'dermanote',
     name: 'DermaNote',
     description:
-      'iOS health app for tracking psoriasis flare progression over time. Daily check-in flow with a custom gradient intensity slider, symptom and photo logging, and treatment task tracking. History view with a calendar heatmap and Swift Charts trend lines over 30 days. Firebase-backed.',
+      'An iOS app for tracking psoriasis flares over time. You do a quick daily check-in with a custom intensity slider, log symptoms and photos, and tick off treatment tasks. The history view has a calendar heatmap and 30-day trend charts. Runs on Firebase.',
     mode: 'Design + Engineering',
     tags: ['SwiftUI', 'Swift Charts', 'Firebase'],
     url: undefined,
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     slug: 'gdg-checkin',
     name: 'GDG Check-In App',
     description:
-      'Real-time event check-in system with live dashboards, QR self-service check-in, role-based access, Bevy CSV import, and walk-in registration with atomic ticket numbering. Built using Claude Code. In discussions to expand to GDG Melbourne.',
+      'Event check-in for GDG chapters. Attendees scan one QR code at the door instead of digging through their email for a ticket. It has live dashboards, role-based access, Bevy CSV import and walk-in registration. In talks to roll it out to GDG Melbourne.',
     mode: 'Engineering',
     tags: ['React', 'Material UI', 'Firebase', 'Claude Code'],
     url: 'https://gdgcheckin.com',
@@ -123,20 +123,20 @@ export const PROJECTS: Project[] = [
         {
           number: 3,
           title: 'iterating after the first event',
-          body: 'using the app at an actual event surfaced two real issues. the check-in flow for pre-registered attendees was two steps, which confused some people at the door. redesigned it to one step. the other issue was staff struggling to match attendees to name badges. fixed that by making the confirmation screen show the attendee\'s name in large text with an instruction to show it to the staff member. small change, made badge handoff a lot faster. the merch draw also came out of running real events. started as a way to incentivise check-in and has since become a regular thing at the end of every event.',
+          body: 'running it at a real event showed two problems. the check-in flow for pre-registered attendees was two steps, which confused some people at the door. redesigned it to one step. the other issue was staff struggling to match attendees to name badges. fixed that by making the confirmation screen show the attendee\'s name in large text with an instruction to show it to the staff member. small change, made badge handoff a lot faster. the merch draw also came out of running real events. started as a way to incentivise check-in and has since become a regular thing at the end of every event.',
         },
         {
           number: 4,
           title: 'scaling across chapters',
-          body: 'the multi-team architecture was built with growth in mind. each gdg chapter gets their own team in the app, creates and manages their own events, and only sees what\'s theirs. got the domain [gdgcheckin.com](https://gdgcheckin.com) specifically so the app isn\'t tied to any one city. currently in discussions with [gdg melbourne](https://gdg.community.dev/gdg-melbourne/) to onboard them. the plan is to keep adding chapters the same way.',
+          body: 'i built it to support multiple teams from the start. each gdg chapter gets their own team in the app, creates and manages their own events, and only sees what\'s theirs. got the domain [gdgcheckin.com](https://gdgcheckin.com) specifically so the app isn\'t tied to any one city. currently in discussions with [gdg melbourne](https://gdg.community.dev/gdg-melbourne/) to onboard them. the plan is to keep adding chapters the same way.',
         },
       ],
       decisions: [
         'flip the qr flow. one qr at the door instead of one per attendee. solved the pdf email problem entirely.',
         'firebase transactions for walk-in numbering. prevents duplicate ticket numbers when multiple devices check in simultaneously.',
         'hand-rolled csv parser. no external dependency, handles bevy\'s quoting edge cases without surprises.',
-        'name on confirmation screen. a small detail that made badge handoff noticeably faster in practice.',
-        'material ui over tailwind. used it as a challenge. would go back to tailwind without hesitation.',
+        'name on the confirmation screen. made badge handoff a lot faster at the door.',
+        'material ui over tailwind. used it as a challenge. i\'d pick tailwind next time.',
       ],
     },
   },
@@ -145,7 +145,7 @@ export const PROJECTS: Project[] = [
     slug: 'storia',
     name: 'Storia',
     description:
-      'Personal story development platform for screenwriters. Block-based document editing with folder and project organisation, collapsible sidebar, and Firebase auth. Designed high-fidelity interfaces across web and mobile.',
+      'A tool for screenwriters to develop their stories. It has a block-based editor, folders and projects to keep things organised, and Firebase auth. I designed it for both web and mobile.',
     mode: 'Design + Engineering',
     tags: ['React', 'TypeScript', 'Tailwind', 'Firebase'],
     url: undefined,
@@ -177,7 +177,7 @@ export const GDG_EVENTS: GDGEvent[] = [
   {
     id: 1,
     title: 'burnout to boardroom: architecting your ai c-suite with vertex ai',
-    description: 'my first event as solo host. covered how to use vertex ai to build and manage an ai-powered leadership layer for your organisation. did the full visual design for the event: banner, thumbnail, and presentation.',
+    description: 'my first event as solo host, on using vertex ai to build an ai c-suite for your organisation. i did all the visual design: banner, thumbnail and presentation.',
     assets: {
       banner: '',
       thumbnail: '',
@@ -188,7 +188,7 @@ export const GDG_EVENTS: GDGEvent[] = [
     id: 2,
     title: 'from prompt to product: build an ai shopping assistant in minutes',
     status: 'rescheduled',
-    description: 'planned event around building an ai shopping assistant rapidly using google\'s tools. cancelled and will be rescheduled at a later date.',
+    description: 'an event on building an ai shopping assistant quickly with google\'s tools. it got cancelled and will be rescheduled.',
     assets: {
       banner: '',
       thumbnail: '',
@@ -197,7 +197,7 @@ export const GDG_EVENTS: GDGEvent[] = [
   {
     id: 3,
     title: '"i build with ai, and so can you" — a gemini x android studio workshop',
-    description: 'hands-on workshop showing developers how to integrate gemini into their android studio workflow. managed the arrival of speakers from melbourne for this one. also the event where the [gdg check-in app](/project/gdg-checkin) debuted. good attendance and strong engagement on the day.',
+    description: 'a hands-on workshop on using gemini in android studio. i looked after the speakers flying in from melbourne, and it\'s where the [gdg check-in app](/project/gdg-checkin) debuted. good turnout.',
     assets: {
       banner: '',
       thumbnail: '',
@@ -208,7 +208,7 @@ export const GDG_EVENTS: GDGEvent[] = [
     id: 4,
     title: 'ai always compiles: is your organisation shipping those results?',
     role: 'instructor',
-    description: 'talk and workshop event exploring the gap between ai adoption and real organisational output. organised a speaker who flew in from dallas for the talk, and instructed a hands-on workshop session on the day.',
+    description: 'a talk and workshop on why adopting ai often doesn\'t turn into real output for organisations. i organised a speaker who flew in from dallas and ran the hands-on workshop myself.',
     assets: {
       presentation: '',
       video: '',
@@ -217,7 +217,7 @@ export const GDG_EVENTS: GDGEvent[] = [
   {
     id: 5,
     title: 'build with ai: build a resume reviewer with google ai studio',
-    description: 'practical workshop where attendees built a working resume reviewer using google ai studio. full visual design across banner, thumbnail, and presentation, plus a display video.',
+    description: 'a workshop where attendees built a working resume reviewer in google ai studio. i did all the visual design: banner, thumbnail, presentation and a display video.',
     assets: {
       banner: '',
       thumbnail: '',
@@ -228,9 +228,9 @@ export const GDG_EVENTS: GDGEvent[] = [
 ];
 
 export const CONSULTING = {
-  pitch: 'i take on contract work for founders and teams who need a senior engineer without a full-time hire.',
+  pitch: 'i take on contract work for founders and teams who need a senior engineer but aren\'t ready for a full-time hire.',
   availability: 'currently accepting new clients',
-  forWho: 'best fit for early-stage startups, solo founders, and small teams who need to move fast, whether that\'s building from scratch, extending an existing codebase, or working through a technical decision.',
+  forWho: 'usually early-stage startups, solo founders and small teams who need to move fast. i can build something from scratch, work in your existing codebase, or just help you make a technical call.',
   services: [
     { label: 'full-stack web', detail: 'React · TypeScript · Firebase' },
     { label: 'iOS development', detail: 'SwiftUI · MusicKit · App Store' },
@@ -238,9 +238,9 @@ export const CONSULTING = {
     { label: 'technical advisory', detail: 'stack choices · architecture · code review' },
   ],
   process: [
-    { step: '01', title: 'discovery', body: 'a short call to understand the problem, what you\'ve tried, and what a good outcome looks like. no commitment.' },
-    { step: '02', title: 'proposal', body: 'a clear scope of work with deliverables, timeline, and a fixed or time-based rate. nothing vague.' },
-    { step: '03', title: 'delivery', body: 'build in close collaboration, ship, and hand off cleanly. i stay available for questions after.' },
+    { step: '01', title: 'discovery', body: 'a short call about the problem, what you\'ve tried, and what you want to end up with. no commitment.' },
+    { step: '02', title: 'proposal', body: 'a written scope with deliverables, a timeline, and a fixed or hourly rate.' },
+    { step: '03', title: 'delivery', body: 'i build it with you, ship it, and hand it over. i\'m still around for questions after.' },
   ],
 };
 

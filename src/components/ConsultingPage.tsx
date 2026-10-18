@@ -116,12 +116,12 @@ export default function ConsultingPage() {
         </p>
 
         <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch', marginBottom: '8rem' }}>
-          the <Link to="/#work" className="prose-link">projects section</Link> shows the kind of work i do — production web apps, native iOS, and full-stack systems built and shipped end-to-end.
+          my <Link to="/#work" className="prose-link">projects</Link> are the best example of what i build: web apps, native ios apps, and the backends behind them.
         </p>
 
         {/* CTA */}
         <p style={{ fontSize: '0.6875rem', opacity: 0.45, marginBottom: '1.25rem', letterSpacing: '0.01em' }}>
-          ready to start?
+          want to work together?
         </p>
 
         <a

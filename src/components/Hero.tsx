@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   return (
     <section
@@ -26,13 +28,14 @@ export default function Hero() {
       </p>
 
       <p style={{ fontSize: '0.9375rem', opacity: 0.95, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '3rem' }}>
-        design and engineering, where that line doesn't exist. building consumer products with ai-powered speed.
+        i design and build consumer apps, like{' '}
+        <Link to="/project/tracksense" className="prose-link">tracksense</Link>, a music app on the app store.
       </p>
 
       <div className="hero-stats" style={{ display: 'flex', gap: '3rem' }}>
         {[
           { value: '3+', label: 'yrs experience' },
-          { value: '5', label: 'projects shipped' },
+          { value: '3', label: 'projects shipped' },
           { value: '1', label: 'app on the app store' },
         ].map((stat) => (
           <div key={stat.label}>

@@ -16,7 +16,7 @@ export default function Community() {
             </a>
           </p>
           <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch', marginBottom: '0.875rem' }}>
-            organiser for a community of 2,000+ developers. host workshops and manage speaker relations with google. for my own events, i go deep on the design side — banners, thumbnails, presentations, and display videos.
+            organiser for a community of 2,000+ developers. i host workshops and manage speaker relations with google. for my own events i make all the design assets myself: banners, thumbnails, presentations and display videos.
           </p>
           <p style={{ fontSize: '0.6875rem', opacity: 0.7 }}>
             <Link to="/community" className="prose-link">
