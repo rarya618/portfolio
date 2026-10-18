@@ -45,6 +45,49 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: 7,
+    slug: 'devfest-sydney',
+    name: 'DevFest Sydney',
+    description:
+      'The website and back office for DevFest Sydney 2026, GDG Sydney\'s annual conference. Speakers, volunteers and attendees went through it: call for speakers, volunteer signups, the lineup and schedule, a job board and a post-event survey. Organisers ran reviews, emails and the crew roster from an admin panel. I was the only developer, with 475 commits from June to October.',
+    mode: 'Design + Engineering',
+    tags: ['Next.js', 'Tailwind', 'Firebase', 'Resend'],
+    url: 'https://devfest.gdgsydney.com',
+    process: {
+      summary:
+        'devfest sydney is gdg sydney\'s annual conference, held on 10 october 2026 at torrens university. i built the website, and it grew into the system we ran the event on: speakers, volunteers, the schedule, and everything we needed on the day.',
+      steps: [
+        {
+          number: 1,
+          title: 'call for speakers',
+          body: 'the site launched in june with one job: the call for speakers. the form takes a talk, workshop or lightning talk proposal, sends a confirmation email through resend, and stores it in firestore. it opens and closes from a single setting, with a countdown to the closing date. people can send more than one proposal, for example a talk and a workshop.',
+        },
+        {
+          number: 2,
+          title: 'reviewing and confirming speakers',
+          body: 'behind it is an admin panel, with google sign-in limited to the organisers. we review proposals there and accept or reject them. accepting someone and telling them are separate steps, so decisions and emails don\'t have to happen at the same time. accepted speakers get a link to confirm, then their free ticket, then a calendar invite for their session. only confirmed speakers show up on the public lineup and schedule. rejections go out once per person, listing every proposal they sent, and nobody who is speaking gets one.',
+        },
+        {
+          number: 3,
+          title: 'volunteers and crew',
+          body: 'volunteers sign up through their own form and confirm the same way speakers do. accepted volunteers become the crew: each one gets an area and a shift, and the roster exports to csv. the public crew page only shows volunteers who have confirmed and that an organiser has added to it.',
+        },
+        {
+          number: 4,
+          title: 'on the day',
+          body: 'the last few weeks added what we needed at the venue. a job board for open roles and for attendees open to work, with every post approved first and sponsors\' roles listed first. a version of it for the screen at the venue that fits on one screen, scrolls itself when it fills up, and has a qr code to post a role. a page of starter guides for the builder\'s space. a feedback survey with an nps score, and a form for workshop credits when one workshop couldn\'t run as planned. after the event, speakers got a thank-you email with the photos and a link to claim a mug.',
+        },
+      ],
+      decisions: [
+        'accepting and emailing as separate steps. decisions could be made and changed before anyone heard anything.',
+        'confirm links behind a button, not on page load. email scanners open links automatically and would have confirmed people on their behalf.',
+        'one rejection email per person, not per proposal. someone who sent three proposals gets one email that names all three.',
+        'the crew is the volunteer list, not a copy. a roster is a few extra fields on each signup, and a copy would just be something else to keep in sync.',
+        'the venue screen refreshes every 30 seconds instead of listening live. the job board holds private emails, so browsers can\'t read it directly.',
+      ],
+    },
+  },
+  {
     id: 2,
     slug: 'tailr',
     name: 'Tailr',
@@ -184,6 +227,7 @@ export const TECH_URLS: Record<string, string | undefined> = {
   React: 'https://react.dev',
   'Next.js': 'https://nextjs.org',
   Astro: 'https://astro.build',
+  Resend: 'https://resend.com',
   Firebase: 'https://firebase.google.com',
   TypeScript: 'https://www.typescriptlang.org',
   Tailwind: 'https://tailwindcss.com',
