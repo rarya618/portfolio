@@ -38,4 +38,4 @@ Deploys to the `russal` hosting site in the `russal-arya` Firebase project. All 
 
 ## License
 
-[GPL-3.0](LICENSE)
+Code is licensed under [GPL-3.0](LICENSE). Written content (including `src/data.ts` copy and `content/`) and `public/resume.pdf` are © Russal Arya, all rights reserved.
