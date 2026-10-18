@@ -46,7 +46,7 @@ export default function Nav() {
         <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
           <Link to="/consulting">consulting</Link>
           {hashLinks.map(({ label, href }) => (
-            <a key={label} href={href}>{label}</a>
+            <Link key={label} to={href}>{label}</Link>
           ))}
           <a href={CONTACT.resume} target="_blank" rel="noreferrer">resume ↗</a>
         </div>
@@ -92,7 +92,7 @@ export default function Nav() {
       >
         <Link to="/consulting" onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>consulting</Link>
         {hashLinks.map(({ label, href }) => (
-          <a key={label} href={href} onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>{label}</a>
+          <Link key={label} to={href} onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>{label}</Link>
         ))}
         <a href={CONTACT.resume} target="_blank" rel="noreferrer" onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>
           resume ↗

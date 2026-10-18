@@ -5,6 +5,20 @@ html {
   scroll-padding-top: 4.25rem;
 }
 
+.page {
+  animation: page-in 0.4s ease-out;
+}
+
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .page { animation: none; }
+}
+
 :root {
   --bg: #0D1520;
   --fg: #E0DDD7;

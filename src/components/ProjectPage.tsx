@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { PROJECTS, TECH_URLS } from '../data';
 import Nav from './Nav';
@@ -30,9 +30,9 @@ export default function ProjectPage() {
       <main>
         <Nav />
         <section style={{ padding: '8vmin 8vw' }}>
-          <a href="/#work" style={{ fontSize: '0.6875rem', opacity: 0.7, textDecoration: 'none', display: 'inline-block', marginBottom: '3rem' }}>
+          <Link to="/#work" style={{ fontSize: '0.6875rem', opacity: 0.7, textDecoration: 'none', display: 'inline-block', marginBottom: '3rem' }}>
             ← back
-          </a>
+          </Link>
           <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '1rem' }}>## 404</p>
           <p style={{ fontSize: '0.9375rem', opacity: 0.9 }}>project not found.</p>
         </section>
@@ -62,12 +62,12 @@ export default function ProjectPage() {
       <Nav />
       <section style={{ padding: '8vmin 8vw', maxWidth: '900px' }}>
 
-        <a
-          href="/#work"
+        <Link
+          to="/#work"
           style={{ fontSize: '0.6875rem', opacity: 0.7, textDecoration: 'none', display: 'inline-block', marginBottom: '4rem' }}
         >
           ← back
-        </a>
+        </Link>
 
         {/* header */}
         <h1 style={{

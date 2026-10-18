@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
@@ -14,9 +14,12 @@ import ScrollToTop from './components/ScrollToTop';
 import NotFound from './components/NotFound';
 
 export default function App() {
+  const { pathname } = useLocation();
+
   return (
     <>
       <ScrollToTop />
+      <div key={pathname} className="page">
       <Routes>
       <Route
         path="/"
@@ -46,6 +49,7 @@ export default function App() {
       <Route path="/consulting" element={<ConsultingPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+      </div>
     </>
   );
 }
