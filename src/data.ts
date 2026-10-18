@@ -88,6 +88,17 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    id: 6,
+    slug: 'gdg-sydney-website',
+    name: 'GDG Sydney website',
+    tagline: 'the website for gdg sydney, with events, team and sponsors pulled live from bevy.',
+    description:
+      'The website for GDG Sydney. Upcoming and past events, the organising team, sponsors and member numbers all load live from Bevy, so the site stays current without anyone updating it by hand. It also has a call for speakers form and the code of conduct, all built to Google\'s GDG brand guide.',
+    mode: 'Design + Engineering',
+    tags: ['Astro', 'React', 'Tailwind', 'Firebase'],
+    url: 'https://gdgsydney.com',
+  },
+  {
     id: 3,
     slug: 'dermanote',
     name: 'DermaNote',

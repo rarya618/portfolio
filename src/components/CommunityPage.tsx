@@ -62,7 +62,8 @@ export default function CommunityPage() {
         </p>
 
         <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, opacity: 0.9, maxWidth: '60ch', marginBottom: '5rem' }}>
-          organiser for gdg sydney, a community of 2,000+ developers. i host workshops and handle the relationship between gdg sydney and google. for my own events i design everything from scratch: banners, thumbnails, presentations and display videos.
+          organiser for gdg sydney, a community of 2,000+ developers. i host workshops and handle the relationship between gdg sydney and google. for my own events i design everything from scratch: banners, thumbnails, presentations and display videos. i also built the{' '}
+          <Link to="/project/gdg-sydney-website" className="prose-link">chapter's website</Link>.
         </p>
 
         <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '3rem' }}>

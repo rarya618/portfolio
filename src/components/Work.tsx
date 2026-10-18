@@ -62,7 +62,11 @@ export default function Work() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
             {other.map((project) => (
               <p key={project.id} style={{ fontSize: '0.8125rem', lineHeight: 1.75 }}>
-                {project.name.toLowerCase()}
+                {project.url ? (
+                  <Link to={`/project/${project.slug}`} className="prose-link">{project.name.toLowerCase()}</Link>
+                ) : (
+                  project.name.toLowerCase()
+                )}
                 <span style={{ opacity: 0.75 }}> · {project.tagline}</span>
               </p>
             ))}
