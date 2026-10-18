@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { CONTACT } from '../data';
 
 export default function Hero() {
   return (
@@ -24,13 +24,18 @@ export default function Hero() {
       </h1>
 
       <p style={{ fontSize: '0.8125rem', opacity: 0.8, marginBottom: '1.25rem' }}>
-        // full-stack &amp; mobile product builder · sydney
+        // software engineer · sydney
       </p>
 
-      <p style={{ fontSize: '0.9375rem', opacity: 0.95, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '3rem' }}>
-        i design and build consumer apps, like{' '}
-        <Link to="/project/tracksense" className="prose-link">tracksense</Link>, a music app on the app store.
+      <p style={{ fontSize: '0.9375rem', opacity: 0.95, maxWidth: '44ch', lineHeight: 1.75, marginBottom: '1.5rem' }}>
+        i design and build consumer apps, usually a few at once.
       </p>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', fontSize: '0.75rem' }}>
+        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--light)', flexShrink: 0 }} />
+        <span style={{ opacity: 0.85 }}>open to full-time roles ·</span>
+        <a href={CONTACT.resume} target="_blank" rel="noreferrer" className="prose-link" style={{ opacity: 0.85 }}>resume ↗</a>
+      </div>
 
       <div className="hero-stats" style={{ display: 'flex', gap: '3rem' }}>
         {[

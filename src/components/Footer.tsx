@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { CONTACT } from '../data';
 
 export default function Footer() {
@@ -21,6 +22,11 @@ export default function Footer() {
           resume ↗
         </a>
       </div>
+
+      <p style={{ marginTop: '3rem', fontSize: '0.75rem', opacity: 0.7 }}>
+        i also take on some contract work.{' '}
+        <Link to="/consulting" className="prose-link">more on that →</Link>
+      </p>
 
       <p style={{ marginTop: '6vmin', fontSize: '0.6875rem', opacity: 0.65 }}>© 2026 russal arya</p>
     </footer>

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { CONTACT } from '../data';
 
 const hashLinks = [
-  { label: 'work', href: '/#work' },
   { label: 'about', href: '/#about' },
+  { label: 'work', href: '/#work' },
   { label: 'contact', href: '/#contact' },
 ];
 
@@ -44,7 +44,6 @@ export default function Nav() {
         </Link>
 
         <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
-          <Link to="/consulting">consulting</Link>
           {hashLinks.map(({ label, href }) => (
             <Link key={label} to={href}>{label}</Link>
           ))}
@@ -90,7 +89,6 @@ export default function Nav() {
           transition: 'opacity 0.2s',
         }}
       >
-        <Link to="/consulting" onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>consulting</Link>
         {hashLinks.map(({ label, href }) => (
           <Link key={label} to={href} onClick={() => setOpen(false)} style={{ fontSize: '1.5rem', opacity: 0.85, paddingBlock: '0.75rem' }}>{label}</Link>
         ))}

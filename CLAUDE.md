@@ -18,14 +18,14 @@ No test suite is configured. Deployed to Firebase Hosting (project `russal-arya`
 Single-theme React 19 portfolio with client-side routing (`react-router-dom`). `src/main.tsx` wraps the app in `HelmetProvider` and `BrowserRouter`; `firebase.json` rewrites every path to `index.html` so deep links work.
 
 **Routes** (`src/App.tsx`):
-- `/` — Nav → Hero → Work → Consulting → Community → About → Footer
+- `/` — Nav → Hero → About → Now → Work → Community → Footer (contact, plus a one-line link to consulting)
 - `/project/:slug` — `ProjectPage`, looks the slug up in `PROJECTS`
 - `/community` — `CommunityPage` (GDG Sydney events)
-- `/consulting` — `ConsultingPage`
+- `/consulting` — `ConsultingPage`, only linked from the footer
 - `*` — `NotFound`
 
 **Key files:**
-- `src/data.ts` — all site content: `PROJECTS` (with optional `process` case-study steps and decisions), `GDG_EVENTS`, `CONSULTING`, `CONTACT`, `STACK`, `TECH_URLS`. Edit here to update portfolio content.
+- `src/data.ts` — all site content: `PROJECTS` (with optional `process` case-study steps and decisions), `NOW` (the "now" section), `GDG_EVENTS`, `CONSULTING`, `CONTACT`, `STACK`, `TECH_URLS`. Edit here to update portfolio content.
 - `src/types/index.ts` — shared types (`Project`, `ProjectProcess`, `ProcessStep`, `GDGEvent`, `GDGAssets`).
 - `content/*.md` — long-form source notes for projects and community work. Not imported by the app; `data.ts` copy is written from these.
 
