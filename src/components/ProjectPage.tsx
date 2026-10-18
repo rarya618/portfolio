@@ -81,29 +81,31 @@ export default function ProjectPage() {
           {project.name}
         </h1>
 
-        <div style={{ display: 'flex', alignItems: 'baseline', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '4rem' }}>
-          <p style={{ fontSize: '0.6875rem', opacity: 0.65 }}>
-            {project.mode.toLowerCase()}
-          </p>
-          <p style={{ fontSize: '0.6875rem', opacity: 0.75 }}>
-            {project.tags.map((tag, i) => {
-              const url = TECH_URLS[tag];
-              return (
-                <span key={tag}>
-                  {i > 0 && ' · '}
-                  {url ? (
-                    <a href={url} target="_blank" rel="noreferrer" className="prose-link">
-                      {tag.toLowerCase()}
-                    </a>
-                  ) : (
-                    tag.toLowerCase()
-                  )}
-                </span>
-              );
-            })}
-          </p>
+        <div style={{ marginBottom: '4rem' }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: '1.5rem', flexWrap: 'wrap' }}>
+            <p style={{ fontSize: '0.6875rem', opacity: 0.65 }}>
+              {project.mode.toLowerCase()}
+            </p>
+            <p style={{ fontSize: '0.6875rem', opacity: 0.75 }}>
+              {project.tags.map((tag, i) => {
+                const url = TECH_URLS[tag];
+                return (
+                  <span key={tag}>
+                    {i > 0 && ' · '}
+                    {url ? (
+                      <a href={url} target="_blank" rel="noreferrer" className="prose-link">
+                        {tag.toLowerCase()}
+                      </a>
+                    ) : (
+                      tag.toLowerCase()
+                    )}
+                  </span>
+                );
+              })}
+            </p>
+          </div>
           {(project.url || project.designUrl) && (
-            <span style={{ display: 'flex', gap: '1.5rem', fontSize: '0.6875rem', opacity: 0.7 }}>
+            <p style={{ display: 'flex', gap: '1.5rem', marginTop: '1rem', fontSize: '0.6875rem', opacity: 0.7 }}>
               {project.url && (
                 <a href={project.url} target="_blank" rel="noreferrer" className="prose-link">
                   view project ↗
@@ -114,7 +116,7 @@ export default function ProjectPage() {
                   view designs ↗
                 </a>
               )}
-            </span>
+            </p>
           )}
         </div>
 
