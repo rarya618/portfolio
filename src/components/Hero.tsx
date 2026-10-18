@@ -5,7 +5,8 @@ export default function Hero() {
     <section
       style={{
         padding: '0 8vw',
-        minHeight: '100vh',
+        // Fill the screen below the sticky nav so the content centres in what's visible
+        minHeight: 'calc(100svh - var(--nav-h))',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -31,23 +32,10 @@ export default function Hero() {
         i design and build consumer apps, usually a few at once.
       </p>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '3rem', fontSize: '0.75rem' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem' }}>
         <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--light)', flexShrink: 0 }} />
         <span style={{ opacity: 0.85 }}>open to full-time roles ·</span>
         <a href={CONTACT.resume} target="_blank" rel="noreferrer" className="prose-link" style={{ opacity: 0.85 }}>resume ↗</a>
-      </div>
-
-      <div className="hero-stats" style={{ display: 'flex', gap: '3rem' }}>
-        {[
-          { value: '3+', label: 'yrs experience' },
-          { value: '3', label: 'projects shipped' },
-          { value: '1', label: 'app on the app store' },
-        ].map((stat) => (
-          <div key={stat.label}>
-            <span style={{ fontSize: '1.25rem', letterSpacing: '-0.02em', opacity: 1 }}>{stat.value}</span>
-            <span style={{ fontSize: '0.8125rem', opacity: 0.75, marginLeft: '0.5rem' }}>{stat.label}</span>
-          </div>
-        ))}
       </div>
     </section>
   );

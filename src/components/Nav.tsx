@@ -36,7 +36,8 @@ export default function Nav() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '1.5rem 8vw',
+          height: 'var(--nav-h)',
+          padding: '0 8vw',
         }}
       >
         <Link to="/" style={{ fontSize: '0.8125rem', opacity: 1 }}>

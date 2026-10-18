@@ -1,6 +1,10 @@
 import { Link } from 'react-router-dom';
 import { PROJECTS, TECH_URLS } from '../data';
 
+// Projects with a full case study lead; the rest go in a short list underneath
+const featured = PROJECTS.filter(p => p.process);
+const other = PROJECTS.filter(p => !p.process);
+
 export default function Work() {
   return (
     <section id="work" style={{ padding: '8vmin 8vw' }}>
@@ -9,7 +13,7 @@ export default function Work() {
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
-        {PROJECTS.map((project, i) => (
+        {featured.map((project, i) => (
           <div key={project.id} className="work-row" style={{ display: 'flex', gap: '2rem' }}>
             <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>
               [{String(i + 1).padStart(2, '0')}]
@@ -51,6 +55,20 @@ export default function Work() {
           </div>
         ))}
       </div>
+
+      {other.length > 0 && (
+        <div style={{ marginTop: '4rem' }}>
+          <p style={{ fontSize: '0.6875rem', opacity: 0.8, marginBottom: '1rem' }}>also built</p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+            {other.map((project) => (
+              <p key={project.id} style={{ fontSize: '0.8125rem', lineHeight: 1.75 }}>
+                {project.name.toLowerCase()}
+                <span style={{ opacity: 0.75 }}> · {project.tagline}</span>
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

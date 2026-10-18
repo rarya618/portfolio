@@ -32,6 +32,8 @@ export interface Project {
   slug: string;
   name: string;
   description: string;
+  /** One line for the "also built" list, used when the project has no case study */
+  tagline?: string;
   mode: 'Engineering' | 'Design' | 'Design + Engineering';
   tags: string[];
   url?: string;

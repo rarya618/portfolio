@@ -91,6 +91,7 @@ export const PROJECTS: Project[] = [
     id: 3,
     slug: 'dermanote',
     name: 'DermaNote',
+    tagline: 'an ios app for tracking psoriasis flares over time.',
     description:
       'An iOS app for tracking psoriasis flares over time. You do a quick daily check-in with a custom intensity slider, log symptoms and photos, and tick off treatment tasks. The history view has a calendar heatmap and 30-day trend charts. Runs on Firebase.',
     mode: 'Design + Engineering',
@@ -144,6 +145,7 @@ export const PROJECTS: Project[] = [
     id: 5,
     slug: 'storia',
     name: 'Storia',
+    tagline: 'a writing tool for screenwriters to develop their stories.',
     description:
       'A tool for screenwriters to develop their stories. It has a block-based editor, folders and projects to keep things organised, and Firebase auth. I designed it for both web and mobile.',
     mode: 'Design + Engineering',
