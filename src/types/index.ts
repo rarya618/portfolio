@@ -37,5 +37,6 @@ export interface Project {
   mode: 'Engineering' | 'Design' | 'Design + Engineering';
   tags: string[];
   url?: string;
+  designUrl?: string;
   process?: ProjectProcess;
 }

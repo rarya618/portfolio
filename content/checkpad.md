@@ -121,3 +121,4 @@ Public check-in form requires no auth at all.
 - Walk-in ticket numbering (GDGWALKIN0001…) kept, now assigned on the server
 - Status: attendee flow and both dashboards built on mock data; backend, data migration and cutover still to come
 - Source: https://github.com/rarya618/checkpad (see `docs/migration-plan.md`)
+- Designs: https://www.figma.com/design/PDbJHFMHYOi45MJd5ro6Lp/Checkpad

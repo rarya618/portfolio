@@ -107,6 +107,7 @@ export const PROJECTS: Project[] = [
     mode: 'Design + Engineering',
     tags: ['Astro', 'React', 'Tailwind', 'Firebase', 'Figma', 'Claude Code'],
     url: 'https://gdgcheckin.com',
+    designUrl: 'https://www.figma.com/design/PDbJHFMHYOi45MJd5ro6Lp/Checkpad',
     process: {
       summary:
         'a friend at [gdg sydney](https://gdg.community.dev/gdg-sydney/) was venting about how painful the [bevy](https://www.bevy.com) check-in process was. i came up with a fix and had the core working in two hours. it has since grown into a platform used across multiple gdg chapters, and i\'m now rebuilding it as checkpad so any meetup can use it.',
