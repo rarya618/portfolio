@@ -27,10 +27,10 @@ export default function App() {
           <main>
             <Helmet>
               <title>Russal Arya — Software Engineer</title>
-              <meta name="description" content="Sydney-based software engineer. I design and build apps for iOS and the web. Creator of TrackSense, GDG Check-In App, and more." />
+              <meta name="description" content="Sydney-based software engineer. I design and build apps for iOS and the web. Creator of TrackSense, Checkpad, and more." />
               <link rel="canonical" href="https://russal.dev" />
               <meta property="og:title" content="Russal Arya — Software Engineer" />
-              <meta property="og:description" content="Sydney-based software engineer. I design and build apps for iOS and the web. Creator of TrackSense, GDG Check-In App, and more." />
+              <meta property="og:description" content="Sydney-based software engineer. I design and build apps for iOS and the web. Creator of TrackSense, Checkpad, and more." />
               <meta property="og:url" content="https://russal.dev" />
             </Helmet>
             <a href="#about" className="skip-link">skip to content</a>

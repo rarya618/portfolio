@@ -100,8 +100,8 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 4,
-    slug: 'gdg-checkin',
-    name: 'GDG Check-In App',
+    slug: 'checkpad',
+    name: 'Checkpad',
     description:
       'Event check-in for GDG chapters. Attendees scan one QR code at the door instead of digging through their email for a ticket. It has live dashboards, role-based access, Bevy CSV import and walk-in registration. In talks to roll it out to GDG Melbourne.',
     mode: 'Engineering',
@@ -199,7 +199,7 @@ export const GDG_EVENTS: GDGEvent[] = [
   {
     id: 3,
     title: '"i build with ai, and so can you" — a gemini x android studio workshop',
-    description: 'a hands-on workshop on using gemini in android studio. i looked after the speakers flying in from melbourne, and it\'s where the [gdg check-in app](/project/gdg-checkin) debuted. good turnout.',
+    description: 'a hands-on workshop on using gemini in android studio. i looked after the speakers flying in from melbourne, and it\'s where [checkpad](/project/checkpad) debuted. good turnout.',
     assets: {
       banner: '',
       thumbnail: '',
@@ -249,7 +249,7 @@ export const CONSULTING = {
 export const NOW: { label: string; to?: string; detail: string }[] = [
   { label: 'job hunting', detail: 'looking for my next full-time role.' },
   { label: 'tracksense', to: '/project/tracksense', detail: 'testing remote play before the next app store update.' },
-  { label: 'gdg check-in', to: '/project/gdg-checkin', detail: 'getting gdg melbourne set up on it.' },
+  { label: 'checkpad', to: '/project/checkpad', detail: 'getting gdg melbourne set up on it.' },
   { label: 'gdg sydney', to: '/community', detail: 'rescheduling the ai shopping assistant workshop.' },
 ];
 

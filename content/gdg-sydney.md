@@ -24,7 +24,7 @@ Russal organises GDG Sydney, a community of 2,000+ developers. Hosts workshops a
 ### 03. "I Build with AI, and so can you" – A Gemini x Android Studio Workshop
 - **Status:** Held
 - **Attendance:** Good
-- **Notes:** Managed arrival of speakers from Melbourne. Debuted the GDG Check-In App at this event.
+- **Notes:** Managed arrival of speakers from Melbourne. Debuted Checkpad at this event.
 - **Assets:** banner, thumbnail, presentation (Canva embed)
 
 ### 04. AI Always Compiles: Is your Organisation Shipping those Results?

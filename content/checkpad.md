@@ -1,4 +1,4 @@
-# GDG Check-In App
+# Checkpad
 
 ## Overview
 
