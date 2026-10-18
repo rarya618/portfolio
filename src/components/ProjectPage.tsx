@@ -103,7 +103,7 @@ export default function ProjectPage() {
             })}
           </p>
           {(project.url || project.designUrl) && (
-            <span style={{ display: 'flex', gap: '1.5rem', marginLeft: 'auto', fontSize: '0.6875rem', opacity: 0.7 }}>
+            <span style={{ display: 'flex', gap: '1.5rem', fontSize: '0.6875rem', opacity: 0.7 }}>
               {project.url && (
                 <a href={project.url} target="_blank" rel="noreferrer" className="prose-link">
                   view project ↗
