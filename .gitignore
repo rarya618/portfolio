@@ -26,4 +26,4 @@ dist-ssr
 /.agents
 /.firebase
 skills-lock.json
-firebase.json
+.vite
