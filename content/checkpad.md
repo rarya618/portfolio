@@ -109,3 +109,15 @@ Public check-in form requires no auth at all.
 4. **Team-scoped access** — each GDG chapter sees only their events. the same model scales to any number of chapters.
 5. **Name on confirmation screen** — small UX detail that made badge handoff significantly faster in practice.
 6. **Material UI (regret)** — used it as a learning challenge. tailwind would have been faster and simpler.
+
+---
+
+## The Rebuild (Checkpad)
+
+- Started October 2026 as a ground-up rebuild of the original app, renamed Checkpad and opened up to any meetup, not just GDG
+- Every screen designed in Figma first: attendee check-in, staff check-in on mobile, organisers and teams, Bevy import/export, prize draw display, event analytics
+- npm workspaces monorepo: Astro site for attendees (`apps/web`), React + Vite dashboard for organisers (`apps/dashboard`), shared design tokens and types (`packages/shared`)
+- Backend moves to a new Firebase project on Firestore (Sydney region): check-ins run on the server, rules check role and team, sign-in with Google or an emailed link
+- Walk-in ticket numbering (GDGWALKIN0001…) kept, now assigned on the server
+- Status: attendee flow and both dashboards built on mock data; backend, data migration and cutover still to come
+- Source: https://github.com/rarya618/checkpad (see `docs/migration-plan.md`)

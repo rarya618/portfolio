@@ -103,13 +103,13 @@ export const PROJECTS: Project[] = [
     slug: 'checkpad',
     name: 'Checkpad',
     description:
-      'Event check-in for GDG chapters. Attendees scan one QR code at the door instead of digging through their email for a ticket. It has live dashboards, role-based access, Bevy CSV import and walk-in registration. In talks to roll it out to GDG Melbourne.',
-    mode: 'Engineering',
-    tags: ['React', 'Material UI', 'Firebase', 'Claude Code'],
+      'Event check-in for meetups, first built for GDG chapters. Attendees scan one QR code at the door instead of digging through their email for a ticket. It has live dashboards, role-based access, Bevy CSV import and walk-in registration. I\'m now rebuilding it with a new design and backend.',
+    mode: 'Design + Engineering',
+    tags: ['Astro', 'React', 'Tailwind', 'Firebase', 'Figma', 'Claude Code'],
     url: 'https://gdgcheckin.com',
     process: {
       summary:
-        'a friend at [gdg sydney](https://gdg.community.dev/gdg-sydney/) was venting about how painful the [bevy](https://www.bevy.com) check-in process was. i had just started exploring [claude code](https://claude.ai/code) and saw this as a good problem to throw at it. came up with the idea and had the core working in two hours. it has since grown into a platform used across multiple gdg chapters.',
+        'a friend at [gdg sydney](https://gdg.community.dev/gdg-sydney/) was venting about how painful the [bevy](https://www.bevy.com) check-in process was. i came up with a fix and had the core working in two hours. it has since grown into a platform used across multiple gdg chapters, and i\'m now rebuilding it as checkpad so any meetup can use it.',
       steps: [
         {
           number: 1,
@@ -131,13 +131,20 @@ export const PROJECTS: Project[] = [
           title: 'scaling across chapters',
           body: 'i built it to support multiple teams from the start. each gdg chapter gets their own team in the app, creates and manages their own events, and only sees what\'s theirs. got the domain [gdgcheckin.com](https://gdgcheckin.com) specifically so the app isn\'t tied to any one city. currently in discussions with [gdg melbourne](https://gdg.community.dev/gdg-melbourne/) to onboard them. the plan is to keep adding chapters the same way.',
         },
+        {
+          number: 5,
+          title: 'rebuilding it as checkpad',
+          body: 'the first version proved the idea, so i\'m rebuilding it from scratch as checkpad, for any meetup rather than just gdg. this time i designed every screen in figma before building it: the attendee check-in flow, staff check-in on a phone, a prize draw display for the projector, and event analytics. it\'s now two apps sharing one design package: an astro site for attendees and a react dashboard for organisers. the backend moves from realtime database to firestore, check-ins run on the server, and organisers only see their own team\'s events. the attendee flow and both dashboards are built, and the backend is next.',
+        },
       ],
       decisions: [
         'flip the qr flow. one qr at the door instead of one per attendee. solved the pdf email problem entirely.',
         'firebase transactions for walk-in numbering. prevents duplicate ticket numbers when multiple devices check in simultaneously.',
         'hand-rolled csv parser. no external dependency, handles bevy\'s quoting edge cases without surprises.',
         'name on the confirmation screen. made badge handoff a lot faster at the door.',
-        'material ui over tailwind. used it as a challenge. i\'d pick tailwind next time.',
+        'material ui over tailwind. used it as a challenge. went back to tailwind for checkpad.',
+        'firestore over realtime database for the rebuild. rules apply per document, and it can look attendees up by email without loading a whole event.',
+        'design first for checkpad. every screen was in figma before any code, including the empty, error and phone states.',
       ],
     },
   },
@@ -164,6 +171,7 @@ export const TECH_URLS: Record<string, string | undefined> = {
   MusicKit: 'https://developer.apple.com/musickit/',
   React: 'https://react.dev',
   'Next.js': 'https://nextjs.org',
+  Astro: 'https://astro.build',
   Firebase: 'https://firebase.google.com',
   TypeScript: 'https://www.typescriptlang.org',
   Tailwind: 'https://tailwindcss.com',
@@ -249,7 +257,7 @@ export const CONSULTING = {
 export const NOW: { label: string; to?: string; detail: string }[] = [
   { label: 'job hunting', detail: 'looking for my next full-time role.' },
   { label: 'tracksense', to: '/project/tracksense', detail: 'testing remote play before the next app store update.' },
-  { label: 'checkpad', to: '/project/checkpad', detail: 'getting gdg melbourne set up on it.' },
+  { label: 'checkpad', to: '/project/checkpad', detail: 'rebuilding it with a new design and backend. designs are done, backend is next.' },
   { label: 'gdg sydney', to: '/community', detail: 'rescheduling the ai shopping assistant workshop.' },
 ];
 
