@@ -1,6 +1,8 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { PROJECTS, TECH_URLS } from '../data';
+import type { StepImage } from '../types';
 import Nav from './Nav';
 
 function renderWithLinks(text: string) {
@@ -21,9 +23,46 @@ function renderWithLinks(text: string) {
   return result;
 }
 
+function StepImages({ images, className }: { images: StepImage[]; className: string }) {
+  return (
+    <div className={`step-images ${className}`}>
+      {/* phone screens sit three to a row, everything else takes the full width */}
+      {images.map((image) => (
+        <img
+          key={image.src}
+          src={image.src}
+          alt={image.alt}
+          loading="lazy"
+          style={{
+            width: image.phone ? 'calc((100% - 1.5rem) / 3)' : '100%',
+            opacity: 0.9,
+            borderRadius: '4px',
+            display: 'block',
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function ProjectPage() {
   const { slug } = useParams<{ slug: string }>();
   const project = PROJECTS.find(p => p.slug === slug);
+  const stepsRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState(0);
+
+  // the step being read is the one crossing a line 40% down the viewport
+  useEffect(() => {
+    const steps = stepsRef.current?.querySelectorAll<HTMLElement>('[data-step]');
+    if (!steps?.length) return;
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) setActiveStep(Number((entry.target as HTMLElement).dataset.step));
+      }
+    }, { rootMargin: '-40% 0px -59% 0px' });
+    steps.forEach(step => observer.observe(step));
+    return () => observer.disconnect();
+  }, [slug]);
 
   if (!project) {
     return (
@@ -41,6 +80,9 @@ export default function ProjectPage() {
   }
 
   const { process } = project;
+  const hasStepImages = process?.steps.some(step => step.images?.length) ?? false;
+  // the pinned panel keeps showing the latest images reached, so steps without their own don't blank it
+  const panelStep = process?.steps.findLast(step => step.number <= activeStep && step.images?.length);
 
   const pageTitle = `${project.name} — Russal Arya`;
   const pageDesc = project.process?.summary.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') ?? project.description;
@@ -60,7 +102,7 @@ export default function ProjectPage() {
         <meta name="twitter:description" content={pageDesc} />
       </Helmet>
       <Nav />
-      <section style={{ padding: '8vmin 8vw', maxWidth: '900px' }}>
+      <section style={{ padding: '8vmin 8vw', maxWidth: '1200px' }}>
 
         <Link
           to="/#work"
@@ -146,58 +188,55 @@ export default function ProjectPage() {
               ## process
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginBottom: '5rem' }}>
-              {process.steps.map(step => (
-                <div key={step.number} style={{ display: 'flex', gap: '2rem' }}>
-                  <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>
-                    [{String(step.number).padStart(2, '0')}]
-                  </span>
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    <p style={{ fontSize: '0.9375rem', opacity: 0.95, marginBottom: '0.625rem' }}>
-                      {step.title}
-                    </p>
-                    <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch' }}>
-                      {renderWithLinks(step.body)}
-                    </p>
-                    {step.images && step.images.length > 0 && (
-                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '0.75rem', maxWidth: '640px', marginTop: '1.25rem' }}>
-                        {/* phone screens sit three to a row, everything else takes the full width */}
-                        {step.images.map((image) => (
-                          <img
-                            key={image.src}
-                            src={image.src}
-                            alt={image.alt}
-                            loading="lazy"
-                            style={{
-                              width: image.phone ? 'calc((100% - 1.5rem) / 3)' : '100%',
-                              opacity: 0.9,
-                              borderRadius: '4px',
-                              display: 'block',
-                            }}
-                          />
-                        ))}
+            <div className="process-layout">
+              <div className="process-steps">
+                <div ref={stepsRef} style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginBottom: '5rem' }}>
+                  {process.steps.map(step => (
+                    <div key={step.number} data-step={step.number} style={{ display: 'flex', gap: '2rem' }}>
+                      <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>
+                        [{String(step.number).padStart(2, '0')}]
+                      </span>
+                      <div style={{ flex: 1, minWidth: 0 }}>
+                        <p style={{ fontSize: '0.9375rem', opacity: 0.95, marginBottom: '0.625rem' }}>
+                          {step.title}
+                        </p>
+                        <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch' }}>
+                          {renderWithLinks(step.body)}
+                        </p>
+                        {step.images && step.images.length > 0 && (
+                          <StepImages images={step.images} className="step-images-inline" />
+                        )}
                       </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* decisions */}
-            {process.decisions && process.decisions.length > 0 && (
-              <>
-                <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2rem' }}>
-                  ## decisions
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {process.decisions.map((d, i) => (
-                    <p key={i} style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.85, maxWidth: '60ch' }}>
-                      {renderWithLinks(d)}
-                    </p>
+                    </div>
                   ))}
                 </div>
-              </>
-            )}
+
+                {/* decisions */}
+                {process.decisions && process.decisions.length > 0 && (
+                  <>
+                    <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2rem' }}>
+                      ## decisions
+                    </p>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                      {process.decisions.map((d, i) => (
+                        <p key={i} style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.85, maxWidth: '60ch' }}>
+                          {renderWithLinks(d)}
+                        </p>
+                      ))}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {/* on wide screens the images sit in a column pinned beside the steps and decisions */}
+              {hasStepImages && (
+                <aside className="step-panel">
+                  {panelStep?.images && (
+                    <StepImages key={panelStep.number} images={panelStep.images} className="step-panel-images" />
+                  )}
+                </aside>
+              )}
+            </div>
           </>
         )}
 
