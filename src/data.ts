@@ -182,13 +182,11 @@ export const PROJECTS: Project[] = [
           number: 3,
           title: 'iterating after the first event',
           body: 'running it at a real event showed two problems. the check-in flow for pre-registered attendees was two steps, which confused some people at the door. redesigned it to one step. the other issue was staff struggling to match attendees to name badges. fixed that by making the confirmation screen show the attendee\'s name in large text with an instruction to show it to the staff member. small change, made badge handoff a lot faster. the merch draw also came out of running real events. started as a way to incentivise check-in and has since become a regular thing at the end of every event.',
-          image: { src: '/projects/checkpad/checked-in.webp', alt: 'confirmation on a phone: you\'re checked in, jane. show this to one of the organisers' },
         },
         {
           number: 4,
           title: 'scaling across chapters',
           body: 'i built it to support multiple teams from the start. each gdg chapter gets their own team in the app, creates and manages their own events, and only sees what\'s theirs. got the domain [gdgcheckin.com](https://gdgcheckin.com) specifically so the app isn\'t tied to any one city. currently in discussions with [gdg melbourne](https://gdg.community.dev/gdg-melbourne/) to onboard them. the plan is to keep adding chapters the same way.',
-          image: { src: '/projects/checkpad/organiser-teams.webp', alt: 'organisers page listing the gdg sydney team, with a permanent link for printed signs' },
         },
         {
           number: 5,
