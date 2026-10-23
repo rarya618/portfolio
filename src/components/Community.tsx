@@ -25,6 +25,25 @@ export default function Community() {
           </p>
         </div>
       </div>
+
+      <div style={{ display: 'flex', gap: '2rem', marginTop: '3rem' }}>
+        <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>[02]</span>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <p style={{ fontSize: '0.9375rem', opacity: 1, marginBottom: '0.5rem' }}>
+            <Link to="/speaking" className="prose-link">
+              speaking
+            </Link>
+          </p>
+          <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch', marginBottom: '0.875rem' }}>
+            most recently at devfest melbourne 2026, on how firebase knows when you've closed your laptop.
+          </p>
+          <p style={{ fontSize: '0.6875rem', opacity: 0.7 }}>
+            <Link to="/speaking" className="prose-link">
+              see talks →
+            </Link>
+          </p>
+        </div>
+      </div>
     </section>
   );
 }

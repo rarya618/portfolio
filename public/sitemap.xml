@@ -11,6 +11,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://russal.dev/speaking</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://russal.dev/project/tracksense</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

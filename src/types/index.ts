@@ -40,3 +40,12 @@ export interface Project {
   designUrl?: string;
   process?: ProjectProcess;
 }
+
+export interface Talk {
+  id: number;
+  title: string;
+  event: string;
+  date?: string;
+  description: string;
+  links: { label: string; url: string }[];
+}

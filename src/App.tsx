@@ -6,6 +6,7 @@ import Work from './components/Work';
 import Community from './components/Community';
 import CommunityPage from './components/CommunityPage';
 import ConsultingPage from './components/ConsultingPage';
+import SpeakingPage from './components/SpeakingPage';
 import About from './components/About';
 import Footer from './components/Footer';
 import ProjectPage from './components/ProjectPage';
@@ -44,6 +45,7 @@ export default function App() {
       />
       <Route path="/project/:slug" element={<ProjectPage />} />
       <Route path="/community" element={<CommunityPage />} />
+      <Route path="/speaking" element={<SpeakingPage />} />
       <Route path="/consulting" element={<ConsultingPage />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

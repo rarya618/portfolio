@@ -1,4 +1,4 @@
-import type { Project, GDGEvent } from './types';
+import type { Project, GDGEvent, Talk } from './types';
 
 export const PROJECTS: Project[] = [
   {
@@ -290,6 +290,19 @@ export const GDG_EVENTS: GDGEvent[] = [
       presentation: '',
       video: '',
     },
+  },
+];
+
+export const TALKS: Talk[] = [
+  {
+    id: 1,
+    title: 'how does firebase know i closed my laptop?',
+    event: 'devfest melbourne 2026',
+    description: 'a talk on presence with the firebase realtime database: how an app knows who\'s online, and how it finds out when someone isn\'t. it covers .info/connected, the ondisconnect handlers the server runs when a client drops, and a heartbeat for the quiet cases, like wi-fi cutting out or a laptop lid closing, where the connection never says goodbye. the demo is still live. open it in a few tabs, then close one and watch it drop.',
+    links: [
+      { label: 'demo', url: 'https://presence-talk-demo.web.app' },
+      { label: 'code', url: 'https://github.com/rarya618/firebase-presence-talk' },
+    ],
   },
 ];
 
