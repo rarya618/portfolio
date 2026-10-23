@@ -44,7 +44,7 @@ export default function Nav() {
           russal arya
         </Link>
 
-        <div className="nav-links" style={{ display: 'flex', gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
+        <div className="nav-links" style={{ gap: '2rem', alignItems: 'center', fontSize: '0.75rem', opacity: 0.8 }}>
           {hashLinks.map(({ label, href }) => (
             <Link key={label} to={href}>{label}</Link>
           ))}
@@ -57,7 +57,6 @@ export default function Nav() {
           aria-label="Toggle menu"
           aria-expanded={open}
           style={{
-            display: 'none',
             flexDirection: 'column',
             gap: '5px',
             background: 'none',
@@ -77,7 +76,6 @@ export default function Nav() {
         ref={menuRef}
         className="mobile-menu"
         style={{
-          display: 'none',
           position: 'fixed',
           inset: 0,
           zIndex: 9,

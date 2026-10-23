@@ -31,7 +31,7 @@ export default function About() {
         ## about
       </p>
 
-      <div className="about-layout" style={{ display: 'flex', gap: '6vw', alignItems: 'flex-start' }}>
+      <div className="about-layout" style={{ display: 'flex', alignItems: 'flex-start' }}>
         <div style={{ fontSize: '0.9rem', lineHeight: 1.85, opacity: 0.95, maxWidth: '52ch', flex: '1 1 auto' }}>
           <Bio />
         </div>

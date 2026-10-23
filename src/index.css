@@ -85,6 +85,24 @@ a {
   top: 0;
 }
 
+/* layout values the mobile query overrides live here, not in inline styles */
+.nav-links {
+  display: flex;
+}
+
+.hamburger,
+.mobile-menu {
+  display: none;
+}
+
+.about-layout {
+  gap: 6vw;
+}
+
+.work-row {
+  gap: 2rem;
+}
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -105,10 +123,5 @@ a {
 
   .work-row {
     gap: 1rem;
-  }
-
-  .footer-row {
-    flex-direction: column;
-    gap: 2rem;
   }
 }

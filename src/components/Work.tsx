@@ -14,7 +14,7 @@ export default function Work() {
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
         {featured.map((project, i) => (
-          <div key={project.id} className="work-row" style={{ display: 'flex', gap: '2rem' }}>
+          <div key={project.id} className="work-row" style={{ display: 'flex' }}>
             <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>
               [{String(i + 1).padStart(2, '0')}]
             </span>
