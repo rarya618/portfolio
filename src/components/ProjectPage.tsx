@@ -60,7 +60,7 @@ export default function ProjectPage() {
         <meta name="twitter:description" content={pageDesc} />
       </Helmet>
       <Nav />
-      <section style={{ padding: '8vmin 8vw', maxWidth: '1200px' }}>
+      <section style={{ padding: '8vmin 8vw', maxWidth: '1440px' }}>
 
         <Link
           to="/#work"

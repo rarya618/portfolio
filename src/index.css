@@ -130,7 +130,7 @@ a {
 
 /* gives the image room to stay pinned before the next step pushes in */
 .step-with-image {
-  min-height: 70vh;
+  min-height: 85vh;
 }
 
 @media (max-width: 768px) {
