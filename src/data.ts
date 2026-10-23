@@ -310,13 +310,6 @@ export const CONSULTING = {
   ],
 };
 
-export const NOW: { label: string; to?: string; detail: string }[] = [
-  { label: 'job hunting', detail: 'looking for my next full-time role.' },
-  { label: 'tracksense', to: '/project/tracksense', detail: 'testing remote play before the next app store update.' },
-  { label: 'checkpad', to: '/project/checkpad', detail: 'rebuilding it with a new design and backend. designs are done, backend is next.' },
-  { label: 'gdg sydney', to: '/community', detail: 'rescheduling the ai shopping assistant workshop.' },
-];
-
 export const CONTACT = {
   email: 'hello@russal.dev',
   github: 'https://github.com/rarya618',

@@ -7,7 +7,6 @@ import Community from './components/Community';
 import CommunityPage from './components/CommunityPage';
 import ConsultingPage from './components/ConsultingPage';
 import About from './components/About';
-import Now from './components/Now';
 import Footer from './components/Footer';
 import ProjectPage from './components/ProjectPage';
 import ScrollToTop from './components/ScrollToTop';
@@ -37,7 +36,6 @@ export default function App() {
             <Nav />
             <Hero />
             <About />
-            <Now />
             <Work />
             <Community />
             <Footer />

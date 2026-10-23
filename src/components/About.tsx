@@ -18,6 +18,10 @@ function Bio() {
         at google hq.
       </p>
       <p>
+        i'm also regional lead for australia at tcg (the creators guild), a design collective of brand,
+        space, product and digital people. i run its australian operations, starting with sydney.
+      </p>
+      <p>
         i was born in russia and still speak some russian.
       </p>
     </div>

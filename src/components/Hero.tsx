@@ -33,8 +33,6 @@ export default function Hero() {
       </p>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.75rem' }}>
-        <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--light)', flexShrink: 0 }} />
-        <span style={{ opacity: 0.85 }}>open to full-time roles ·</span>
         <a href={CONTACT.resume} target="_blank" rel="noreferrer" className="prose-link" style={{ opacity: 0.85 }}>resume ↗</a>
       </div>
     </section>
