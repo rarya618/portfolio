@@ -43,8 +43,6 @@ export interface Project {
   tags: string[];
   url?: string;
   designUrl?: string;
-  /** Lead image shown under the project page header */
-  cover?: { src: string; alt: string };
   process?: ProjectProcess;
 }
 

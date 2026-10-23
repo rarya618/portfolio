@@ -120,14 +120,6 @@ export default function ProjectPage() {
           )}
         </div>
 
-        {project.cover && (
-          <img
-            src={project.cover.src}
-            alt={project.cover.alt}
-            style={{ width: '100%', opacity: 0.9, borderRadius: '4px', display: 'block', marginBottom: '4rem' }}
-          />
-        )}
-
         {/* summary */}
         {process ? (
           <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, opacity: 0.9, maxWidth: '60ch', marginBottom: '5rem' }}>
