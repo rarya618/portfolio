@@ -103,13 +103,13 @@ a {
   gap: 2rem;
 }
 
-.step-segment {
+.process-layout {
   display: flex;
   gap: 2.5rem;
 }
 
 /* step number, gap and a 30rem paragraph */
-.segment-steps {
+.process-steps {
   flex: 0 1 34.5rem;
   display: flex;
   flex-direction: column;
@@ -119,6 +119,13 @@ a {
 .step-image-col {
   flex: 1 1 0;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.step-image-slot {
+  flex: 1 1 0;
 }
 
 /* tall phone screens are capped so they fit on screen; wide ones fill the column */
