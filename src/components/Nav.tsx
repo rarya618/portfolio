@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { CONTACT } from '../data';
 
 const hashLinks = [
-  { label: 'about', href: '/#about' },
   { label: 'work', href: '/#work' },
+  { label: 'about', href: '/#about' },
   { label: 'contact', href: '/#contact' },
 ];
 

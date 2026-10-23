@@ -4,7 +4,7 @@ export default function Community() {
   return (
     <section id="community" style={{ padding: '8vmin 8vw' }}>
       <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2.5rem' }}>
-        ## community
+        ## community & speaking
       </p>
 
       <div style={{ display: 'flex', gap: '2rem' }}>

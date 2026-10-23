@@ -11,15 +11,11 @@ function Bio() {
         <Link to="/project/tracksense" className="prose-link">an app to the app store</Link> on my own.
       </p>
       <p>
-        i also organise{' '}
+        i organise{' '}
         <Link to="/community" className="prose-link">gdg sydney</Link>
-        , a community of 2,000+ developers, and i'm the main contact between the chapter and google. i
-        host workshops, design everything for my own events, and have taught a build with ai workshop
-        at google hq.
-      </p>
-      <p>
-        i'm also regional lead for australia at tcg (the creators guild), a design collective of brand,
-        space, product and digital people. i run its australian operations, starting with sydney.
+        {' '}and have taught a build with ai workshop at google hq. i'm also regional lead for australia
+        at tcg (the creators guild), a design collective of brand, space, product and digital people,
+        running its australian operations from sydney.
       </p>
       <p>
         i was born in russia and still speak some russian.

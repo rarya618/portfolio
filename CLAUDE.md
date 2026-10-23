@@ -18,7 +18,7 @@ No test suite is configured. Deployed to Firebase Hosting (project `russal-arya`
 Single-theme React 19 portfolio with client-side routing (`react-router-dom`). `src/main.tsx` wraps the app in `HelmetProvider` and `BrowserRouter`; `firebase.json` rewrites every path to `index.html` so deep links work.
 
 **Routes** (`src/App.tsx`):
-- `/` — Nav → Hero → About → Work → Community → Footer (contact, plus a one-line link to consulting)
+- `/` — Nav → Hero → Work → About → Community (GDG Sydney and speaking) → Footer (contact, plus a one-line link to consulting)
 - `/project/:slug` — `ProjectPage`, looks the slug up in `PROJECTS`
 - `/community` — `CommunityPage` (GDG Sydney events)
 - `/speaking` — `SpeakingPage` (talks), linked from the home page community section

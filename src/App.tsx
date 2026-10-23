@@ -33,11 +33,11 @@ export default function App() {
               <meta property="og:description" content="Sydney-based software engineer. I design and build apps for iOS and the web. Creator of TrackSense, Checkpad, and more." />
               <meta property="og:url" content="https://russal.dev" />
             </Helmet>
-            <a href="#about" className="skip-link">skip to content</a>
+            <a href="#work" className="skip-link">skip to content</a>
             <Nav />
             <Hero />
-            <About />
             <Work />
+            <About />
             <Community />
             <Footer />
           </main>
