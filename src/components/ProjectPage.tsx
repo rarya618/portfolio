@@ -10,10 +10,11 @@ function renderWithLinks(text: string) {
   let match;
   while ((match = linkRegex.exec(text)) !== null) {
     if (match.index > lastIndex) result.push(text.slice(lastIndex, match.index));
+    const isInternal = match[2].startsWith('/');
     result.push(
-      <a key={match.index} href={match[2]} target="_blank" rel="noreferrer" className="prose-link">
-        {match[1]}
-      </a>
+      isInternal
+        ? <Link key={match.index} to={match[2]} className="prose-link">{match[1]}</Link>
+        : <a key={match.index} href={match[2]} target="_blank" rel="noreferrer" className="prose-link">{match[1]}</a>
     );
     lastIndex = match.index + match[0].length;
   }

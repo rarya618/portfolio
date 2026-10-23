@@ -6,9 +6,9 @@ Real-time event check-in system built for Google Developer Groups. Replaces the 
 
 **Stack:** React, TypeScript, Material UI, Firebase (Realtime Database + Auth), Claude Code  
 **Mode:** Engineering  
-**URL:** https://gdgcheckin.com  
+**URL:** https://checkpad.app (rebuild, live); original at https://gdgcheckin.com until cutover  
 **GDG Sydney:** https://gdg.community.dev/gdg-sydney/  
-**Status:** Live and in active use. In discussions to expand to GDG Melbourne.
+**Status:** Live and in active use. By the 21 October 2026 export: 14 events, 2,595 registered attendees, 1,040 check-ins, 461 walk-ins. Events from two chapters (GDG Sydney 12, a campus chapter 1); don't name the campus chapter publicly until they agree.
 
 ---
 
@@ -95,7 +95,7 @@ Public check-in form requires no auth at all.
 ## Scaling
 
 - Set up teams per GDG chapter. each chapter creates and manages their own events.
-- GDG Melbourne in discussions to onboard — not live yet.
+- GDG Melbourne and GDG Brisbane have teams but no events yet.
 - gdgcheckin.com was chosen specifically so the app isn't tied to any one city.
 - Plan is to keep adding chapters the same way.
 
@@ -119,6 +119,6 @@ Public check-in form requires no auth at all.
 - npm workspaces monorepo: Astro site for attendees (`apps/web`), React + Vite dashboard for organisers (`apps/dashboard`), shared design tokens and types (`packages/shared`)
 - Backend moves to a new Firebase project on Firestore (Sydney region): check-ins run on the server, rules check role and team, sign-in with Google or an emailed link
 - Walk-in ticket numbering (GDGWALKIN0001…) kept, now assigned on the server
-- Status: attendee flow and both dashboards built on mock data; backend, data migration and cutover still to come
+- Status (22 October 2026): both apps live on real data at checkpad.app and manage.checkpad.app, with the check-in API, Firestore rules, Google and email-link sign-in, end-to-end, rules and load tests. Still to do: migrating the old data, old-URL redirects and retiring the old app
 - Source: https://github.com/rarya618/checkpad (see `docs/migration-plan.md`)
 - Designs: https://www.figma.com/design/PDbJHFMHYOi45MJd5ro6Lp/Checkpad
