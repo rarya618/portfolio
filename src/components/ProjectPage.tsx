@@ -23,25 +23,16 @@ function renderWithLinks(text: string) {
   return result;
 }
 
-function StepImages({ images, className }: { images: StepImage[]; className: string }) {
+function StepImageView({ image, className }: { image: StepImage; className: string }) {
   return (
-    <div className={`step-images ${className}`}>
-      {/* phone screens sit three to a row, everything else takes the full width */}
-      {images.map((image) => (
-        <img
-          key={image.src}
-          src={image.src}
-          alt={image.alt}
-          loading="lazy"
-          style={{
-            width: image.phone ? 'calc((100% - 1.5rem) / 3)' : '100%',
-            opacity: 0.9,
-            borderRadius: '4px',
-            display: 'block',
-          }}
-        />
-      ))}
-    </div>
+    <img
+      className={className}
+      src={image.src}
+      alt={image.alt}
+      loading="lazy"
+      // tall phone screens are capped so they fit on screen; wide ones fill the column
+      style={{ maxWidth: '100%', maxHeight: '60vh', opacity: 0.9, borderRadius: '4px' }}
+    />
   );
 }
 
@@ -80,9 +71,9 @@ export default function ProjectPage() {
   }
 
   const { process } = project;
-  const hasStepImages = process?.steps.some(step => step.images?.length) ?? false;
-  // the pinned panel keeps showing the latest images reached, so steps without their own don't blank it
-  const panelStep = process?.steps.findLast(step => step.number <= activeStep && step.images?.length);
+  const hasStepImages = process?.steps.some(step => step.image) ?? false;
+  // the pinned panel keeps showing the latest image reached, so steps without their own don't blank it
+  const panelStep = process?.steps.findLast(step => step.number <= activeStep && step.image);
 
   const pageTitle = `${project.name} — Russal Arya`;
   const pageDesc = project.process?.summary.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') ?? project.description;
@@ -188,55 +179,51 @@ export default function ProjectPage() {
               ## process
             </p>
 
-            <div className="process-layout">
-              <div className="process-steps">
-                <div ref={stepsRef} style={{ display: 'flex', flexDirection: 'column', gap: '3rem', marginBottom: '5rem' }}>
-                  {process.steps.map(step => (
-                    <div key={step.number} data-step={step.number} style={{ display: 'flex', gap: '2rem' }}>
-                      <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>
-                        [{String(step.number).padStart(2, '0')}]
-                      </span>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <p style={{ fontSize: '0.9375rem', opacity: 0.95, marginBottom: '0.625rem' }}>
-                          {step.title}
-                        </p>
-                        <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch' }}>
-                          {renderWithLinks(step.body)}
-                        </p>
-                        {step.images && step.images.length > 0 && (
-                          <StepImages images={step.images} className="step-images-inline" />
-                        )}
-                      </div>
+            <div className="process-layout" style={{ marginBottom: '5rem' }}>
+              <div ref={stepsRef} className="process-steps" style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+                {process.steps.map(step => (
+                  <div key={step.number} data-step={step.number} style={{ display: 'flex', gap: '2rem' }}>
+                    <span style={{ fontSize: '0.75rem', opacity: 0.7, paddingTop: '0.125rem', flexShrink: 0 }}>
+                      [{String(step.number).padStart(2, '0')}]
+                    </span>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <p style={{ fontSize: '0.9375rem', opacity: 0.95, marginBottom: '0.625rem' }}>
+                        {step.title}
+                      </p>
+                      <p style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.9, maxWidth: '60ch' }}>
+                        {renderWithLinks(step.body)}
+                      </p>
+                      {step.image && <StepImageView image={step.image} className="step-image-inline" />}
                     </div>
-                  ))}
-                </div>
-
-                {/* decisions */}
-                {process.decisions && process.decisions.length > 0 && (
-                  <>
-                    <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2rem' }}>
-                      ## decisions
-                    </p>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                      {process.decisions.map((d, i) => (
-                        <p key={i} style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.85, maxWidth: '60ch' }}>
-                          {renderWithLinks(d)}
-                        </p>
-                      ))}
-                    </div>
-                  </>
-                )}
+                  </div>
+                ))}
               </div>
 
-              {/* on wide screens the images sit in a column pinned beside the steps and decisions */}
+              {/* on wide screens the image sits in a column pinned beside the steps, then scrolls away with them */}
               {hasStepImages && (
                 <aside className="step-panel">
-                  {panelStep?.images && (
-                    <StepImages key={panelStep.number} images={panelStep.images} className="step-panel-images" />
+                  {panelStep?.image && (
+                    <StepImageView key={panelStep.number} image={panelStep.image} className="step-panel-image" />
                   )}
                 </aside>
               )}
             </div>
+
+            {/* decisions */}
+            {process.decisions && process.decisions.length > 0 && (
+              <>
+                <p style={{ fontSize: '0.75rem', opacity: 0.8, marginBottom: '2rem' }}>
+                  ## decisions
+                </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  {process.decisions.map((d, i) => (
+                    <p key={i} style={{ fontSize: '0.8125rem', lineHeight: 1.75, opacity: 0.85, maxWidth: '60ch' }}>
+                      {renderWithLinks(d)}
+                    </p>
+                  ))}
+                </div>
+              </>
+            )}
           </>
         )}
 

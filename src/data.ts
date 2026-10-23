@@ -171,45 +171,31 @@ export const PROJECTS: Project[] = [
           number: 1,
           title: 'the problem with bevy',
           body: '[bevy](https://www.bevy.com)\'s check-in flow requires staff to scan each attendee\'s individual qr code from a pdf they have to find and download from their email. [meetup](https://meetup.com) signups don\'t have a qr code at all and need to be checked in manually. walk-ins do too. people spend a lot of time at the door just hunting for the qr code. the fix was to flip the process. instead of staff scanning attendees, attendees scan one qr code at the entrance, enter their email, and the app does the rest. if they\'re registered, they\'re checked in. if not, they fill in their name and are registered and checked in on the spot.',
-          images: [
-            { src: '/projects/checkpad/qr-code.webp', alt: 'one qr code for the whole event, shown at the door' },
-            { src: '/projects/checkpad/check-in-form.webp', alt: 'attendee check-in form on a phone, asking for an email', phone: true },
-          ],
+          image: { src: '/projects/checkpad/qr-code.webp', alt: 'one qr code for the whole event, shown at the door' },
         },
         {
           number: 2,
           title: 'building it',
           body: 'the core database system and dashboard were done in two hours. real-time data, basic check-in flow, the main functionality. auth came after, then role-based access, [bevy](https://www.bevy.com) csv import, and walk-in registration with atomic ticket numbering using [firebase](https://firebase.google.com) transactions so multiple staff devices can check in walk-ins at the same time without duplicate ticket numbers. also used [material ui](https://mui.com) as a challenge since i had never tried it. won\'t be doing that again. it complicates a lot of things that [tailwind](https://tailwindcss.com) handles in a straightforward way.',
-          images: [
-            { src: '/projects/checkpad/attendees-dashboard.webp', alt: 'attendees dashboard showing 41 of 109 checked in, split into pre-registered and walk-ins, above the attendee list' },
-            { src: '/projects/checkpad/add-walk-in.webp', alt: 'add walk-in dialog that assigns the next walk-in ticket number, gdgwalkin0005' },
-          ],
+          image: { src: '/projects/checkpad/attendees-dashboard.webp', alt: 'attendees dashboard showing 41 of 109 checked in, split into pre-registered and walk-ins, above the attendee list' },
         },
         {
           number: 3,
           title: 'iterating after the first event',
           body: 'running it at a real event showed two problems. the check-in flow for pre-registered attendees was two steps, which confused some people at the door. redesigned it to one step. the other issue was staff struggling to match attendees to name badges. fixed that by making the confirmation screen show the attendee\'s name in large text with an instruction to show it to the staff member. small change, made badge handoff a lot faster. the merch draw also came out of running real events. started as a way to incentivise check-in and has since become a regular thing at the end of every event.',
-          images: [
-            { src: '/projects/checkpad/checked-in.webp', alt: 'confirmation on a phone: you\'re checked in, jane. show this to one of the organisers', phone: true },
-            { src: '/projects/checkpad/prize-draw.webp', alt: 'prize draw on the projector: winner #3, ada lovelace, with 38 still in the draw' },
-          ],
+          image: { src: '/projects/checkpad/checked-in.webp', alt: 'confirmation on a phone: you\'re checked in, jane. show this to one of the organisers' },
         },
         {
           number: 4,
           title: 'scaling across chapters',
           body: 'i built it to support multiple teams from the start. each gdg chapter gets their own team in the app, creates and manages their own events, and only sees what\'s theirs. got the domain [gdgcheckin.com](https://gdgcheckin.com) specifically so the app isn\'t tied to any one city. currently in discussions with [gdg melbourne](https://gdg.community.dev/gdg-melbourne/) to onboard them. the plan is to keep adding chapters the same way.',
-          images: [
-            { src: '/projects/checkpad/organiser-teams.webp', alt: 'organisers page listing the gdg sydney team, with a permanent link for printed signs' },
-          ],
+          image: { src: '/projects/checkpad/organiser-teams.webp', alt: 'organisers page listing the gdg sydney team, with a permanent link for printed signs' },
         },
         {
           number: 5,
           title: 'rebuilding it as checkpad',
           body: 'the first version proved the idea, so i\'m rebuilding it from scratch as checkpad, for any meetup rather than just gdg. this time i designed every screen in figma before building it: the attendee check-in flow, staff check-in on a phone, a prize draw display for the projector, and event analytics. it\'s now two apps sharing one design package: an astro site for attendees and a react dashboard for organisers. the backend moves from realtime database to firestore, check-ins run on the server, and organisers only see their own team\'s events. the attendee flow and both dashboards are built, and the backend is next.',
-          images: [
-            { src: '/projects/checkpad/staff-check-in.webp', alt: 'staff check-in on a phone: find an attendee by email or ticket number and check them in', phone: true },
-            { src: '/projects/checkpad/event-analytics.webp', alt: 'event analytics: check-ins, walk-ins, the busiest 15 minutes and arrivals over time' },
-          ],
+          image: { src: '/projects/checkpad/event-analytics.webp', alt: 'event analytics: check-ins, walk-ins, the busiest 15 minutes and arrivals over time' },
         },
       ],
       decisions: [

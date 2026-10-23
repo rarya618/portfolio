@@ -1,14 +1,13 @@
 export interface StepImage {
   src: string;
   alt: string;
-  phone?: boolean;
 }
 
 export interface ProcessStep {
   number: number;
   title: string;
   body: string;
-  images?: StepImage[];
+  image?: StepImage;
 }
 
 export interface ProjectProcess {

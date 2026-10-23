@@ -17,7 +17,7 @@ html {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .page { animation: none; }
-  .step-panel-images { animation: none; }
+  .step-panel-image { animation: none; }
 }
 
 :root {
@@ -122,18 +122,12 @@ a {
   top: calc(var(--nav-h) + 2rem);
 }
 
-.step-images {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.step-images-inline {
+.step-image-inline {
   display: none;
 }
 
-.step-panel-images {
+.step-panel-image {
+  display: block;
   animation: page-in 0.3s ease-out;
 }
 
@@ -166,8 +160,8 @@ a {
     display: none;
   }
 
-  .step-images-inline {
-    display: flex;
+  .step-image-inline {
+    display: block;
     max-width: 640px;
     margin-top: 1.25rem;
   }
