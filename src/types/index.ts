@@ -1,8 +1,14 @@
+export interface StepImage {
+  src: string;
+  alt: string;
+  phone?: boolean;
+}
+
 export interface ProcessStep {
   number: number;
   title: string;
   body: string;
-  images?: string[];
+  images?: StepImage[];
 }
 
 export interface ProjectProcess {
@@ -38,6 +44,8 @@ export interface Project {
   tags: string[];
   url?: string;
   designUrl?: string;
+  /** Lead image shown under the project page header */
+  cover?: { src: string; alt: string };
   process?: ProjectProcess;
 }
 

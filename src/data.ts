@@ -162,6 +162,7 @@ export const PROJECTS: Project[] = [
     tags: ['Astro', 'React', 'Tailwind', 'Firebase', 'Figma', 'Claude Code'],
     url: 'https://gdgcheckin.com',
     designUrl: 'https://www.figma.com/design/PDbJHFMHYOi45MJd5ro6Lp/Checkpad',
+    cover: { src: '/projects/checkpad/cover.webp', alt: 'checkpad cover: a real-time self check-in app, with a list of attendees being checked in' },
     process: {
       summary:
         'a friend at [gdg sydney](https://gdg.community.dev/gdg-sydney/) was venting about how painful the [bevy](https://www.bevy.com) check-in process was. i came up with a fix and had the core working in two hours. it has since grown into a platform used across multiple gdg chapters, and i\'m now rebuilding it as checkpad so any meetup can use it.',
@@ -190,6 +191,12 @@ export const PROJECTS: Project[] = [
           number: 5,
           title: 'rebuilding it as checkpad',
           body: 'the first version proved the idea, so i\'m rebuilding it from scratch as checkpad, for any meetup rather than just gdg. this time i designed every screen in figma before building it: the attendee check-in flow, staff check-in on a phone, a prize draw display for the projector, and event analytics. it\'s now two apps sharing one design package: an astro site for attendees and a react dashboard for organisers. the backend moves from realtime database to firestore, check-ins run on the server, and organisers only see their own team\'s events. the attendee flow and both dashboards are built, and the backend is next.',
+          images: [
+            { src: '/projects/checkpad/attendees-dashboard.webp', alt: 'attendees dashboard showing 41 of 109 checked in, split into pre-registered and walk-ins, above the attendee list' },
+            { src: '/projects/checkpad/check-in-form.webp', alt: 'attendee check-in form on a phone, asking for an email', phone: true },
+            { src: '/projects/checkpad/checked-in.webp', alt: 'confirmation on a phone: you\'re checked in, jane. show this to one of the organisers', phone: true },
+            { src: '/projects/checkpad/staff-check-in.webp', alt: 'staff check-in on a phone: find an attendee by email or ticket number and check them in', phone: true },
+          ],
         },
       ],
       decisions: [

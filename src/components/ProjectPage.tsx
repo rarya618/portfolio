@@ -120,6 +120,14 @@ export default function ProjectPage() {
           )}
         </div>
 
+        {project.cover && (
+          <img
+            src={project.cover.src}
+            alt={project.cover.alt}
+            style={{ width: '100%', opacity: 0.9, borderRadius: '4px', display: 'block', marginBottom: '4rem' }}
+          />
+        )}
+
         {/* summary */}
         {process ? (
           <p style={{ fontSize: '0.9375rem', lineHeight: 1.85, opacity: 0.9, maxWidth: '60ch', marginBottom: '5rem' }}>
@@ -152,14 +160,20 @@ export default function ProjectPage() {
                       {renderWithLinks(step.body)}
                     </p>
                     {step.images && step.images.length > 0 && (
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '1.25rem' }}>
-                        {step.images.map((src, idx) => (
+                      <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'flex-start', gap: '0.75rem', maxWidth: '640px', marginTop: '1.25rem' }}>
+                        {/* phone screens sit three to a row, everything else takes the full width */}
+                        {step.images.map((image) => (
                           <img
-                            key={idx}
-                            src={src}
-                            alt=""
+                            key={image.src}
+                            src={image.src}
+                            alt={image.alt}
                             loading="lazy"
-                            style={{ width: '100%', maxWidth: '640px', opacity: 0.9, borderRadius: '4px', display: 'block' }}
+                            style={{
+                              width: image.phone ? 'calc((100% - 1.5rem) / 3)' : '100%',
+                              opacity: 0.9,
+                              borderRadius: '4px',
+                              display: 'block',
+                            }}
                           />
                         ))}
                       </div>
